@@ -3,6 +3,7 @@ description: "Thanks for filling this out. Please make sure to complete all requ
 title: "[Issue] "
 labels:
   - needs triage
+
 body:
   - type: markdown
     attributes:
@@ -24,8 +25,24 @@ body:
   - type: input
     id: server_version
     attributes:
-      label: Server/AzerothCore version
+      label: Server/AzerothCore version *
       placeholder: "e.g., git hash, tag, or build"
+    validations:
+      required: true
+
+  - type: input
+    id: multibot_chatless_version
+    attributes:
+      label: MultiBot Chatless version *
+      placeholder: "e.g., git hash, tag, or version"
+    validations:
+      required: true
+
+  - type: input
+    id: multibot_bridge_version
+    attributes:
+      label: MultiBot Bridge version *
+      placeholder: "e.g., git hash, tag, or version"
     validations:
       required: true
        
