@@ -27,8 +27,24 @@ body:
       label: Server/AzerothCore version
       placeholder: "e.g., git hash, tag, or build"
     validations:
-      required: false
+      required: true
 
+   - type: input
+     id: addon_version
+     attributes:
+       label: Addon/MultiBot Chatless version
+       placeholder: "e.g., git hash, tag, or build"
+     validations:
+       required: true
+
+   - type: input
+     id: bridge_version
+     attributes:
+       label: Bridge/MultiBot Bridge version
+       placeholder: "e.g., git hash, tag, or build"
+     validations:
+       required: true
+       
   - type: textarea
     id: description
     attributes:
