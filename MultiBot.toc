@@ -1,14 +1,17 @@
 ## Interface: 30300
-## Version: 4.0
-## Title: MultiBot
-## Notes: User Interface for Playerbot
-## Author: Nico Löbbert
+## Title: |cFFFFD700WoW Perú|r - |cFF00FFCCMultiBot|r |cFF888888(Control Playerbots)|r
+## Notes: Interfaz gráfica integral para control, estrategias, formación, inspección y gestión de bots (mod-playerbots) en World of Warcraft 3.3.5a (Reino Andino).
+## Author: Nico Löbbert, Wishmaster117 (Adaptación oficial WoW Perú Dev Team)
+## Version: 4.0.0-WP
+## X-Category: Combat / Bot Management
+## X-Website: https://github.com/DarckRovert/WoWPeru_MultiBot
+## X-License: GPL-3.0
+## X-Ecosystem-Module: #21
 ## SavedVariablesPerCharacter: MultiBotSave, MultiBotDB, MultiBotSaved
 ## SavedVariables: MultiBotGlobalSave
-## X-Maintainer: Wishmaster117 aka TheWarlock
-## X-Contributors: Wishmaster117 aka TheWarlock
-## X-Contact: plexalexdcnh@gmail.com
-## X-ProjectURL: https://github.com/Wishmaster117/MultiBot-Standalone
+## X-Original-Maintainer: Wishmaster117 aka TheWarlock
+## X-Original-Author: Nico Löbbert
+## X-Original-ProjectURL: https://github.com/Wishmaster117/MultiBot-Standalone
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua

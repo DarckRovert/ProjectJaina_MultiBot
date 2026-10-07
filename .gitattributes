@@ -1,0 +1,12 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Binary files
+*.png binary
+*.tga binary
+*.blp binary
+*.mpq binary
+*.MPQ binary
+*.wav binary
+*.ogg binary
+*.mp3 binary

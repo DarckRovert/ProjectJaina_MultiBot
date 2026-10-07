@@ -1,270 +1,151 @@
-<p align="center">
-  <img width="1024" height="1024" alt="MultiBot Chatless" src="https://github.com/user-attachments/assets/08aa1768-f5c2-49ce-9fe0-a22adb184ce7" />
-</p>
+# 🤖 WoW Perú — MultiBot (Control Táctico de Playerbots)
 
-<div align="center">
+[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://wow-peru.lat/)
+[![Core Compatibility](https://img.shields.io/badge/Core-AzerothCore%20%7C%20mod--playerbots-red.svg)](https://github.com/azerothcore/mod-playerbots)
+[![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru__MultiBot-black?logo=github)](https://github.com/DarckRovert/WoWPeru_MultiBot)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://wow-peru.lat/)
 
-# MultiBot Chatless
+Suite de interfaz gráfica integral y control de escuadrón de **Playerbots** (`mod-playerbots`) para **World of Warcraft: Wrath of the Lich King 3.3.5a (Build 12340)**, adaptada e integrada oficialmente en el ecosistema de **WoW Perú — Reino Andino** como el **Módulo Oficial #21**.
 
-### Bridge-first Playerbots control for World of Warcraft 3.3.5a
-
-<strong>MultiBot Chatless</strong> is a client addon for AzerothCore `mod-playerbots`.
-It keeps the familiar MultiBot UI while moving more bot reads and actions away from automatic chat commands and into a structured server bridge.
-
-<br>
-
-<img alt="WoW Version" src="https://img.shields.io/badge/client-WotLK%203.3.5a-lightgrey" />
-<img alt="Architecture" src="https://img.shields.io/badge/architecture-bridge--first-success" />
-<img alt="Status" src="https://img.shields.io/badge/status-mostly%20chatless-blue" />
-
-</div>
+MultiBot permite comandar, equipar, inspeccionar y dirigir estratégicamente a compañeros controlados por inteligencia artificial sin requerir comandos de texto manuales y minimizando el spam en el chat gracias a su arquitectura **Bridge-First**.
 
 ---
 
-## Companion Bridge Required
+## 📑 Tabla de Contenidos
 
-This repository contains the **client addon**.
+- [Características Principales](#-características-principales)
+- [Arquitectura Bridge-First (Sin Spam en Chat)](#-arquitectura-bridge-first-sin-spam-en-chat)
+- [Módulos de la Interfaz](#-módulos-de-la-interfaz)
+- [Estrategias por Clase y Roles](#-estrategias-por-clase-y-roles)
+- [Comandos de Consola (Slash Commands)](#-comandos-de-consola-slash-commands)
+- [Instalación y Requisitos](#-instalación-y-requisitos)
+- [Integración con el Ecosistema WoW Perú](#-integración-con-el-ecosistema-wow-perú)
+- [Atribución, Créditos y Licencia](#-atribución-créditos-y-licencia)
 
-For the bridge-first features you also need:
+---
 
-### [`mod-multibot-bridge`](https://github.com/Wishmaster117/mod-multibot-bridge)
+## ✨ Características Principales
 
-Install the addon as:
+- **Barra de Control Rápido Flotante:** Acceso con un solo clic a órdenes tácticas inmediatas (`Atacar`, `Huir`, `Detenerse`, `Dispersarse`).
+- **Selector de Formaciones:** Posicionamiento dinámico de los bots alrededor del líder (`Seguir`, `Cerca`, `Escudo`, `Flecha`, `Círculo`, `Línea`, `Caos`).
+- **Asignación de Roles Inmediata:** Conmutación rápida entre roles de combate: **Tanque**, **Sanador** y **DPS** (Cuerpo a cuerpo / A distancia).
+- **Inspección e Inventario Remoto:** Examina el equipo, las gemas, los encantamientos y el contenido de las bolsas de cualquier bot del grupo.
+- **Gestor de Árboles de Talentos:** Asigna puntos y plantillas de talentos personalizadas a tus bots directamente desde la interfaz.
+- **Control Específico de Clase:**
+  - Panel rápido de mascotas de Cazador y selección de familias (`Data/HunterPetFamily.lua`).
+  - Gestión de tótems de Chamán (`MultiBotShamanQuickFrame.lua`).
+- **Administración de Botín (Loot Master):** Reglas configurables de despojo automático y reparto de recompensas (`MultiBotLootMasterUI`).
+- **Soporte Multilingüe Completo:** Localizado en español (`esES`), inglés, francés, alemán, ruso, chino y coreano.
+
+---
+
+## ⚡ Arquitectura Bridge-First (Sin Spam en Chat)
+
+A diferencia de los addons tradicionales de playerbots que envían cientos de comandos por susurros o canales de grupo, MultiBot implementa un flujo estructurado de mensajería:
 
 ```text
-World of Warcraft/Interface/AddOns/MultiBot
+Interacción en UI de MultiBot
+   │
+   ▼
+Mensaje de Addon Estructurado (MB_REQ)
+   │
+   ▼
+Módulo de Servidor (mod-multibot-bridge en C++)
+   │
+   ▼
+Validación de Autoridad y Ejecución en Core
+   │
+   ▼
+Respuesta Estructurada (MB_RES) -> Actualización Silenciosa de UI
 ```
 
-The folder must be named `MultiBot`.
+> [!NOTE]  
+> **Modo Híbrido Resiliente:** Si el servidor no tiene instalado `mod-multibot-bridge`, MultiBot conmuta de forma automática y transparente al modo de compatibilidad clásica mediante susurros al bot.
 
 ---
 
-# What the Addon Does
+## 🗂️ Módulos de la Interfaz
 
-MultiBot Chatless provides a UI for controlling, inspecting and managing Playerbots without flooding normal gameplay with automatic bot chat replies.
+| Módulo | Elemento | Función Principal |
+|---|---|---|
+| **`MultiBotMainUI`** | Barra Principal | Barra flotante configurable con botones de acción rápida, filtros de lista y estado general. |
+| **`MultiBotFormationUI`** | Menú de Formación | Control geométrico del escuadrón para posicionamiento en pulls y jefes de mazmorra. |
+| **`MultiBotAttackUI`** | Panel de Ataque | Selección de objetivos prioritarios, enfoque de foco (`Focus`) y orden de inicio de combate. |
+| **`MultiBotFleeUI`** | Panel de Retirada | Orden de repliegue de emergencia hacia la posición del líder evitando aggro adicional. |
+| **`MultiBotUnitsRosterUI`** | Lista de Escuadrón | Visualización de salud, maná, rol activo y estado de combate de todos los bots vinculados. |
+| **`MultiBotInspectUI`** | Inspección Remota | Vista detallada del equipo 3.3.5a del bot con cálculo de estadísticas. |
+| **`MultiBotTalentFrame`** | Editor de Talentos | Interfaz visual para consultar y gastar puntos de talentos en bots remotos. |
+| **`MultiBotLootUI`** | Distribución de Botín | Configuración de reglas de despojo, venta automática de basura y asignación de ítems. |
+| **`MultiBotGmUI`** | Herramientas GM | Panel de depuración, gestión de bots de prueba y comandos avanzados para administradores. |
 
-The addon still supports intentional manual Playerbots commands where they are useful, but the main direction is:
+---
+
+## 🛡️ Estrategias por Clase y Roles
+
+MultiBot cuenta con módulos de estrategia dedicados y optimizados para cada una de las 10 clases de World of Warcraft 3.3.5a:
+
+| Clase | Archivo de Estrategia | Capacidades Destacadas |
+|---|---|---|
+| **Caballero de la Muerte** | `MultiBotDeathKnight.lua` | Presencias (Sangre, Escarcha, Profano), gestión de runas y cuerno de invierno. |
+| **Druida** | `MultiBotDruid.lua` | Formas (Oso, Felino, Lechúcico, Árbol de vida), sanación periódica y provocar. |
+| **Cazador** | `MultiBotHunter.lua` | Aspectos, trampas, control de mascotas y disparos de rotación. |
+| **Mago** | `MultiBotMage.lua` | Armaduras, refrigerio, polimorfia táctica y daño en área/foco. |
+| **Paladín** | `MultiBotPaladin.lua` | Bendiciones, auras, sellos, sentencia, pompa y mitigación de daño. |
+| **Sacerdote** | `MultiBotPriest.lua` | Rezos, escudos, disipación en masa, Forma de las Sombras y penitencia. |
+| **Pícaro** | `MultiBotRogue.lua` | Sigilo, venenos, porrazo antes de pull, interrupciones y evasión. |
+| **Chamán** | `MultiBotShaman.lua` | Conjunto de 4 tótems, armas imbuidas, Ansia de Sangre / Heroísmo y cortes de viento. |
+| **Brujo** | `MultiBotWarlock.lua` | Demonios invocados, piedras de salud/alma, maldiciones y drenado. |
+| **Guerrero** | `MultiBotWarrior.lua` | Actitudes (Batalla, Defensiva, Rabiosa), gritos, provocar y control de ira. |
+
+---
+
+## ⌨️ Comandos de Consola (Slash Commands)
+
+MultiBot responde a los siguientes comandos de barra en el cliente:
 
 ```text
-UI action
-  -> structured addon message
-  -> mod-multibot-bridge
-  -> validated server-side action/read
-  -> structured result
-  -> authoritative UI refresh
+/mb           - Alterna la barra principal de control de MultiBot.
+/wpmb         - Alias oficial de WoW Perú (Reino Andino).
+/wpbot        - Alias alternativo de WoW Perú.
+/multibot     - Comando largo canónico.
+/mbot         - Alias estándar corto.
+/mbopt        - Abre el panel de opciones y preferencias de interfaz.
+/wpmbopt      - Alias de opciones oficial de WoW Perú.
+/mbfakegm     - Alterna la simulación de interfaz de Game Master.
+/mbdebug      - Herramienta de telemetría interna (/mbdebug <subsistema> <on|off|toggle>).
 ```
 
-The project is currently **bridge-first / mostly chatless** rather than fully chatless. Remaining automatic chat paths are migrated only after targeted audit and runtime validation.
+---
+
+## 📦 Instalación y Requisitos
+
+1. **Ruta de Instalación:**  
+   Clona o extrae el contenido en tu directorio de addons:  
+   `World of Warcraft\Interface\AddOns\MultiBot\`
+2. **Requisitos de Servidor:**  
+   - Servidor **AzerothCore** con el módulo [mod-playerbots](https://github.com/azerothcore/mod-playerbots) habilitado.
+   - Opcional: Módulo de servidor [mod-multibot-bridge](https://github.com/Wishmaster117/mod-multibot-bridge) para despacho silencioso sin mensajes de chat.
+3. Para una guía paso a paso completa, consulta [INSTALL.md](INSTALL.md).
 
 ---
 
-# Main Features
+## 🌐 Integración con el Ecosistema WoW Perú
 
-| Area | Current behavior |
-| --- | --- |
-| **Bot rosters** | My Bots / Altbots, Group, Guild, Friends and Favorites with online/offline presence and structured lifecycle handling. |
-| **Bot connect / disconnect** | `ALT_ROSTER_V1`, `BOT_LIFECYCLE_V1` and `BOT_TARGET_RESOLVE_V1` provide structured discovery, target resolution and lifecycle control. Offline EveryBars stay collapsed; online EveryBars expand consistently. |
-| **Bot state & strategies** | Framed bot-state reads and structured strategy mutations for migrated controls, including Warlock selectors. |
-| **Inventory** | Bag-aware exact inventory for Backpack, Bag 1..4 and Keyring, including empty slots and container filtering. |
-| **Item movement** | Whole-stack drag/drop between supported physical inventory slots through the Bridge. |
-| **Equipment** | Structured equip and unequip workflows with authoritative refresh. |
-| **Trade & item use** | Exact-item Trade, item use and item destruction through dedicated structured actions. |
-| **Vendor** | Single-item sale, bulk Sell Vendor, Buyback and Open Items bridge workflows. |
-| **Bank / Guild Bank** | Bridge-backed views and actions; exact physical BANK/GBANK deposits are implemented. |
-| **Talents** | Premade specialization apply and editable custom talent apply with server verification. |
-| **Glyphs** | Glyph display and apply-related workflows integrated with the character UI. |
-| **Professions** | Profession recipe browsing/crafting plus targeted item recipes. |
-| **Enchanting** | Dedicated Enchanting Trade Service using the native WoW Trade workflow. |
-| **Quests** | Bridge-backed quest list and structured bot quest abandon. Native quest sharing remains available. |
-| **Loot** | Structured loot profiles and exact persistent always-loot item add/remove. |
-| **Group tools** | Formation, Roll, RTI, Pull Control, Disperse and other migrated group controls. |
-| **Character information** | Bot skills, reputations, currencies/emblems, spellbook, stats and PvP stats. |
-| **Outfits** | Outfit listing and actions through the Bridge. |
-| **SelfBot** | Dedicated enable/disable, strategy and selected action support. |
-| **Localization** | Eight runtime locales: `enUS`, `enGB`, `frFR`, `esES`, `deDE`, `ruRU`, `zhCN` and `koKR`. |
+Como el **Módulo Oficial #21**, MultiBot interactúa armónicamente con la suite completa de WoW Perú:
+- **`WoWPeru_RaidSuite`:** Asignación coordinada de marcas de banda y roles tácticos.
+- **`WoWPeru_AdminTools`:** Complementación entre herramientas de GM y control de bots de prueba.
+- **`WoWPeru_Companion`:** Coexistencia limpia en red P2P sin colisión de prefijos ni canales de chat.
+- **`WoWPeru_Graphics`:** Interfaz visual nítida en resoluciones panorámicas Full HD y 4K.
+
+Para más detalles técnicos, consulta [ECOSYSTEM_REGISTRY.md](ECOSYSTEM_REGISTRY.md) y [API.md](API.md).
 
 ---
 
-# Recent Milestone — Alt Roster & Bot Lifecycle
+## 📜 Atribución, Créditos y Licencia
 
-The roster/lifecycle work was merged and post-merge audited on **30 August 2026**.
-
-It standardizes lifecycle behavior across:
-
-- My Bots / Altbots;
-- Group;
-- Guild;
-- Friends;
-- Favorites.
-
-User-facing behavior now follows the same rule everywhere:
-
-- **offline bot** → EveryBar collapsed;
-- **online bot** → EveryBar expanded;
-- roster-specific UI state must not leak into another roster.
-
-The companion Bridge also gained the server-side lifecycle authorization and hardening required for these flows.
-
----
-
-# Bridge Capabilities
-
-The addon negotiates feature capabilities with the Bridge before using newer paths.
-
-Important current capabilities include:
-
-```text
-STATE_FRAMING_V1
-STRATEGY_MUTATION_V1
-OUTFIT_V1
-INVENTORY_V1
-INVENTORY_EXACT_V1
-ITEM_MOVE_V1
-ITEM_EQUIP_V1
-ITEM_UNEQUIP_V1
-ITEM_TRADE_V1
-ITEM_USE_V1
-ITEM_SELL_SINGLE_V1
-VENDOR_BUYBACK_V1
-INVENTORY_BULK_SELL_V1
-INVENTORY_OPEN_V1
-ITEM_DEPOSIT_EXACT_V1
-GROUP_ROLL_V1
-ENCHANT_TRADE_V1
-CRAFT_RECIPE_TARGET_V1
-QUEST_ABANDON_V1
-LOOT_RULE_ITEM_V1
-TALENT_APPLY_V1
-TALENT_SPEC_APPLY_V1
-SELF_BOT_V1
-SELF_STRATEGY_V1
-SELF_ACTION_V1
-ALT_ROSTER_V1
-BOT_LIFECYCLE_V1
-BOT_TARGET_RESOLVE_V1
-```
-
-The exact protocol is an implementation detail of the addon and Bridge. The normal user experience should remain UI-driven.
-
----
-
-# Compatibility & Legacy Chat
-
-The addon deliberately keeps some manual Playerbots commands for diagnostics and explicit gameplay use.
-
-Automatic compatibility fallback is disabled by default:
-
-```lua
-MultiBot.allowLegacyChatFallback = false
-```
-
-When a migrated Bridge feature is available, the addon should prefer the structured path and wait for authoritative server state instead of pretending an action succeeded locally.
-
----
-
-# Installation
-
-1. Install and configure AzerothCore with `mod-playerbots`.
-2. Install [`mod-multibot-bridge`](https://github.com/Wishmaster117/mod-multibot-bridge) on the server and rebuild AzerothCore.
-3. Copy or clone this repository as:
-
-```text
-World of Warcraft/Interface/AddOns/MultiBot
-```
-
-4. Start the server and log into the WoW 3.3.5a client.
-5. Confirm the addon and Bridge handshake successfully.
-
----
-
-# Usage
-
-Open MultiBot with any of these slash commands:
-
-```text
-/multibot
-/mbot
-/mb
-```
-
-You can also open the addon from its minimap button.
-
-When the Bridge is available, supported UI actions automatically use the structured bridge-first path; you do not need to type protocol commands manually.
-
----
-
-# Current Status
-
-The major read paths and a large part of the action surface are now bridge-first and runtime validated.
-
-The project is **not declared fully chatless yet**. Remaining `SendChatMessage` paths are handled family by family so that useful manual commands are not removed accidentally and legacy compatibility is not broken without testing.
-
-The next normal roadmap item is a targeted audit of collective:
-
-```text
-follow
-attack
-stay
-```
-
-No generic arbitrary Playerbots command executor is planned.
-
-Detailed development history, audits, deferred work and technical residuals are tracked in the project documentation.
-
----
-
-# Documentation
-
-- [`docs/ROADMAP.md`](docs/ROADMAP.md) — technical source of truth, completed milestones, audit references, next work and deferred backlog.
-- [`docs/DEBUG_RUNBOOK.md`](docs/DEBUG_RUNBOOK.md) — in-game debug commands, observability guidance and bug-report procedure.
-
----
-
-# Deferred / Lower-Priority Work
-
-The active roadmap currently keeps these items outside the next normal feature batch:
-
-- exact BANK withdrawal (P3B);
-- exact Guild Bank withdrawal (P3C);
-- dedicated localized `SOURCE_STALE` UI text;
-- moving/re-equipping the equipped bag objects themselves (`BAG_MOVE`);
-- `SELL_GREY` follow-up;
-- final real Firestone/Spellstone `TEMP_ENCHANTMENT_SLOT` revalidation;
-- remaining Warlock LuaLint warnings;
-- selected lifecycle/idempotence hardening for older pending-command flows.
-
----
-
-# Credits
-
-MultiBot Chatless builds on the AzerothCore and `mod-playerbots` ecosystem.
-
-Special thanks to **Macx-Lio** for the original MultiBot Module that this project builds upon.
-
-The project also retains attribution for the external **Jellypowered** bridge work that was audited and selectively adapted during the chatless migration. Details and commit references are preserved in the project roadmap.
-
----
-
-# Troubleshooting
-
-### The addon does not load
-
-Confirm the folder is named exactly:
-
-```text
-MultiBot
-```
-
-and is located under:
-
-```text
-World of Warcraft/Interface/AddOns/
-```
-
-### Bridge features are unavailable
-
-Confirm `mod-multibot-bridge` is installed, configured, compiled and loaded by the same AzerothCore server used by the client.
-
-### I still see some Playerbots chat
-
-That does not automatically mean the Bridge is broken. Manual commands and a small number of intentionally retained or not-yet-migrated paths still exist while the project remains **mostly chatless**.
+- **Autor Original de MultiBot:** `Nico Löbbert`
+- **Desarrollador & Maintainer de MultiBot Chatless:** `Wishmaster117 aka TheWarlock` (Alex Plex)
+- **Contribuidores Comunitarios:** `Macx-Lio`, `ike3` y la comunidad de AzerothCore.
+- **Adaptación Oficial y Estandarización:** WoW Perú Dev Team (`DarckRovert` / `Elnazzareno`).
+- **Licencia:** Distribuido bajo la **GNU General Public License v3 (GPL-3.0)**. Consulta [LICENSE](LICENSE) y [NOTICE.md](NOTICE.md) para los avisos legales completos.

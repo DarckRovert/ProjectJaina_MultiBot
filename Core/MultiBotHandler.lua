@@ -2715,7 +2715,7 @@ local function DebugCommand(msg)
 end
 
 local COMMAND_DEFINITIONS = {
-  { "MULTIBOT", ToggleMultiBotUI, { "multibot", "mbot", "mb" } },
+  { "MULTIBOT", ToggleMultiBotUI, { "multibot", "mbot", "mb", "wpmb", "wpbot" } },
   { "MBFAKEGM", FakeGMCommand, { "mbfakegm" } },
   { "MBCLASS", ClassCommand, { "mbclass" } },
   { "MBCLASSTEST", ClassTestCommand, { "mbclasstest" } },

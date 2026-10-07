@@ -1040,7 +1040,7 @@ local function OpenOptionsPanelFromSlash()
   end
 end
 
-MultiBot.RegisterCommandAliases("MULTIBOTOPTIONS", OpenOptionsPanelFromSlash, { "mbopt" })
+MultiBot.RegisterCommandAliases("MULTIBOTOPTIONS", OpenOptionsPanelFromSlash, { "mbopt", "wpmbopt" })
 
 function MultiBot.ToggleOptionsPanel()
   if not MultiBot._optionsBuilt and MultiBot.BuildOptionsPanel then
