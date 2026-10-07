@@ -1834,29 +1834,39 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 		end
 
 		if(MultiBot.isInside(arg1, "Zone:", "zone:")) then
-			local tPlayer = MultiBot.getBot(UnitName("player"))
-			if(tPlayer.waitFor ~= "COORDS") then return end
+			local tPlayer = MultiBot.getBot(UnitName("player")) or MultiBot.coordsState
+			if(not tPlayer or tPlayer.waitFor ~= "COORDS") then return end
 
 			local tLocation = MultiBot.doSplit(arg1, " ")
-			local tZone = string.sub(tLocation[6], 2, string.len(tLocation[6]) - 1)
-			local tMap = string.sub(tLocation[3], 2, string.len(tLocation[3]) - 1)
-			local tTip = MultiBot.doReplace(MultiBot.doReplace(MultiBot.L("info.teleport"), "MAP", tMap), "ZONE", tZone)
+			if(tLocation and #tLocation >= 6 and tLocation[3] and tLocation[6]) then
+				local tZone = string.sub(tLocation[6], 2, string.len(tLocation[6]) - 1)
+				local tMap = string.sub(tLocation[3], 2, string.len(tLocation[3]) - 1)
+				local tTip = MultiBot.doReplace(MultiBot.doReplace(MultiBot.L("info.teleport"), "MAP", tMap), "ZONE", tZone)
 
-			tPlayer.memory.goMap = tLocation[2]
-			tPlayer.memory.tip = MultiBot.doReplace(MultiBot.L("tips.game.memory"), "ABOUT", tTip)
+				if(tPlayer.memory) then
+					tPlayer.memory.goMap = tLocation[2]
+					tPlayer.memory.tip = MultiBot.doReplace(MultiBot.L("tips.game.memory"), "ABOUT", tTip)
+				end
+			end
 			return
 		end
 
 		if(MultiBot.isInside(arg1, "X:") and MultiBot.isInside(arg1, "Y:")) then
-			local tPlayer = MultiBot.getBot(UnitName("player"))
-			if(tPlayer.waitFor ~= "COORDS") then return end
+			local tPlayer = MultiBot.getBot(UnitName("player")) or MultiBot.coordsState
+			if(not tPlayer or tPlayer.waitFor ~= "COORDS") then return end
 
 			local tCoords = MultiBot.doSplit(arg1, " ")
-			tPlayer.memory.goX = tCoords[2]
-			tPlayer.memory.goY = tCoords[4]
-			tPlayer.memory.goZ = tCoords[6]
-			tPlayer.memory.setEnable()
-			tPlayer.waitFor = ""
+			if(tCoords and #tCoords >= 6 and tCoords[2] and tCoords[4] and tCoords[6]) then
+				if(tPlayer.memory) then
+					tPlayer.memory.goX = tCoords[2]
+					tPlayer.memory.goY = tCoords[4]
+					tPlayer.memory.goZ = tCoords[6]
+					if(type(tPlayer.memory.setEnable) == "function") then
+						tPlayer.memory.setEnable()
+					end
+				end
+				tPlayer.waitFor = ""
+			end
 			return
 		end
 	end

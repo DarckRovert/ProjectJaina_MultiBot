@@ -117,6 +117,10 @@ local function addMemoryGemButton(portalFrame, definition)
 
     gem.doLeft = function(button)
         local player = MultiBot.getBot(UnitName("player"))
+        if not player then
+            MultiBot.coordsState = MultiBot.coordsState or {}
+            player = MultiBot.coordsState
+        end
         player.waitFor = player.waitFor or ""
 
         if player.waitFor ~= "" then
