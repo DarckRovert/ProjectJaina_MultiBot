@@ -1,6 +1,6 @@
-# 🌐 Registro de Ecosistema — WoWPeru_MultiBot
+# 🌐 Registro de Ecosistema — Wanos_MultiBot
 
-Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Perú - Reino Andino**.
+Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina - Project Jaina**.
 
 ---
 
@@ -8,13 +8,13 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Pe
 
 | Campo | Valor |
 |---|---|
-| **Nombre Técnico** | `WoWPeru_MultiBot` |
+| **Nombre Técnico** | `Wanos_MultiBot` |
 | **Carpeta Local** | `MultiBot` |
 | **Versión Actual** | `4.0.0-WP` |
 | **Clasificación** | Control de Bots / Inteligencia Artificial / Escuadrón / Gestión de Grupo |
 | **Módulo Oficial** | Módulo Oficial #21 |
 | **Licencia Formal** | GNU General Public License v3 (GPL-3.0) |
-| **Repositorio GitHub** | [WoWPeru_MultiBot](https://github.com/DarckRovert/WoWPeru_MultiBot) |
+| **Repositorio GitHub** | [Wanos_MultiBot](https://github.com/DarckRovert/Wanos_MultiBot) |
 | **Repositorio Upstream** | [Wishmaster117/MultiBot-Chatless](https://github.com/Wishmaster117/MultiBot-Chatless) |
 | **Entorno de Juego** | World of Warcraft 3.3.5a (Build 12340) / WotLK |
 | **Compatibilidad del Servidor** | AzerothCore con módulo `mod-playerbots` (y `mod-multibot-bridge` opcional) |
@@ -31,12 +31,12 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **WoW Pe
 
 ---
 
-## 3. Matriz de Integración del Ecosistema WoW Perú
+## 3. Matriz de Integración del Ecosistema Project Jaina
 
 | Módulo Coexistente | Modo de Interacción | Sinergia y Flujo de Datos |
 |---|---|---|
-| **`WoWPeru_RaidSuite`** | Coordinación Táctica de Banda | `RaidSuite` maneja las alertas de jefes, marcas y asignaciones; `MultiBot` ejecuta los roles (Tank/DPS/Heal) y las posiciones de los Playerbots en la estancia. |
-| **`WoWPeru_AdminTools`** | Soporte para Game Masters | `AdminTools` provee teletransporte y utilidades de GM; `MultiBot` provee la barra GM (`MultiBotGmUI`) y comandos FakeGM para depuración de bots en entornos de prueba. |
-| **`WoWPeru_Companion`** | Sinergia Social & Cross-Faction | Coexistencia armónica en grupo y hermandad sin conflictos de mensajes de addon ni colisión de canales de comunicación. |
-| **`WoWPeru_Graphics`** | Calidad Visual HD | Los marcos flotantes, iconos de clases e inventario se renderizan con pixel-perfect alignment en resoluciones Full HD y 4K. |
+| **`Wanos_RaidSuite`** | Coordinación Táctica de Banda | `RaidSuite` maneja las alertas de jefes, marcas y asignaciones; `MultiBot` ejecuta los roles (Tank/DPS/Heal) y las posiciones de los Playerbots en la estancia. |
+| **`Wanos_AdminTools`** | Soporte para Game Masters | `AdminTools` provee teletransporte y utilidades de GM; `MultiBot` provee la barra GM (`MultiBotGmUI`) y comandos FakeGM para depuración de bots en entornos de prueba. |
+| **`Wanos_Companion`** | Sinergia Social & Cross-Faction | Coexistencia armónica en grupo y hermandad sin conflictos de mensajes de addon ni colisión de canales de comunicación. |
+| **`Wanos_Graphics`** | Calidad Visual HD | Los marcos flotantes, iconos de clases e inventario se renderizan con pixel-perfect alignment en resoluciones Full HD y 4K. |
 | **`ACP` (Addon Control Panel)** | Control de Carga Dinámico | Admite carga y descarga en caliente mediante `/acp` sin necesidad de reiniciar el cliente ejecutable `Wow.exe`. |

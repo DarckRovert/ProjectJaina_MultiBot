@@ -59,7 +59,7 @@ def test_multibot_sanity():
     with open(options_path, "r", encoding="utf-8") as of:
         options_code = of.read()
     assert '"wpmbopt"' in options_code, "Missing 'wpmbopt' slash command alias in MultiBotOptions.lua"
-    print("[PASS] WoW Peru slash command suite validated (/mb, /multibot, /wpmb, /wpbot, /mbopt, /wpmbopt).")
+    print("[PASS] Project Jaina slash command suite validated (/mb, /multibot, /wpmb, /wpbot, /mbopt, /wpmbopt).")
 
     # 5. Engine 3.3.5a safety checks
     for root, _, files in os.walk(base_dir):

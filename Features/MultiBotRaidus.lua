@@ -1113,7 +1113,7 @@ local function removeRaidusMembersOutsideLayout(raidByMembers, raidByName, selfN
             if MultiBot.isMember(raidMemberName) then
                 UninviteUnit(raidMemberName)
             end
-            SendChatMessage(".playerbot bot remove " .. raidMemberName, "SAY")
+            SendChatMessage(".playerbots bot remove " .. raidMemberName, "SAY")
         end
     end
 end
@@ -1466,11 +1466,11 @@ MultiBot.raidus.setRaidus = function()
                 if MultiBotRaidusIsBotGrouped(name) then
                     -- Bot déjà dans le groupe/raid :
                     -- on laisse le core playerbots gérer leave + logout
-                    SendChatMessage(".playerbot bot remove " .. name, "SAY")
+                    SendChatMessage(".playerbots bot remove " .. name, "SAY")
                 else
                     -- Bot pas dans le groupe/raid :
                     -- login + invite via playerbots
-                    SendChatMessage(".playerbot bot add " .. name, "SAY")
+                    SendChatMessage(".playerbots bot add " .. name, "SAY")
                 end
             end
         end)

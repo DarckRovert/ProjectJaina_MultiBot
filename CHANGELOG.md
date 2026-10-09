@@ -7,8 +7,8 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/
 
 ## [4.0.0-WP] — 2026-10-07
 
-### 🌐 Integración con el Ecosistema WoW Perú (Reino Andino)
-- **Módulo Oficial #21:** Adopción formal de MultiBot como el Módulo Oficial #21 de la infraestructura de cliente de WoW Perú.
+### 🌐 Integración con el Ecosistema Project Jaina (Project Jaina)
+- **Módulo Oficial #21:** Adopción formal de MultiBot como el Módulo Oficial #21 de la infraestructura de cliente de Project Jaina.
 - **Nuevos Slash Commands Oficiales:** Añadidos los alias oficiales del servidor:
   - `/wpmb` y `/wpbot` (para alternar la barra de control).
   - `/wpmbopt` (para abrir directamente el panel de opciones y ajustes).

@@ -1894,7 +1894,7 @@ local function addRosterMemberButton(member, socialRoster)
 
             -- Preserve the pre-existing fallback only when structured
             -- lifecycle capabilities are unavailable.
-            SendChatMessage(".playerbot bot remove " .. button.name, "SAY")
+            SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
             if MultiBot.SetBridgeBotOnlineState and button.bridge ~= nil then
                 MultiBot.SetBridgeBotOnlineState(button, false)
             else
@@ -1928,7 +1928,7 @@ local function addRosterMemberButton(member, socialRoster)
             return
         end
         button._mbSocialForceCollapsed = true
-        SendChatMessage(".playerbot bot remove " .. button.name, "SAY")
+        SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
         if button.parent.frames[button.name] ~= nil then
             button.parent.frames[button.name]:Hide()
         end
@@ -1962,7 +1962,7 @@ local function addRosterMemberButton(member, socialRoster)
                 return
             end
 
-            SendChatMessage(".playerbot bot add " .. button.name, "SAY")
+            SendChatMessage(".playerbots bot add " .. button.name, "SAY")
             if button.setEnable then
                 button.setEnable()
             end
@@ -2004,7 +2004,7 @@ local function addRosterMemberButton(member, socialRoster)
             return
         end
 
-        SendChatMessage(".playerbot bot add " .. button.name, "SAY")
+        SendChatMessage(".playerbots bot add " .. button.name, "SAY")
         button.setEnable()
     end
 end
@@ -2369,10 +2369,10 @@ local function createFactionBanner(unitsFrame)
     local button = allianceFrame.addButton("FactionBanner", 0, 0, bannerIcon, MultiBot.L("tips.units.alliance"))
     button:doShow()
     button.doRight = function()
-        SendChatMessage(".playerbot bot remove *", "SAY")
+        SendChatMessage(".playerbots bot remove *", "SAY")
     end
     button.doLeft = function()
-        SendChatMessage(".playerbot bot add *", "SAY")
+        SendChatMessage(".playerbots bot add *", "SAY")
     end
 
     return allianceFrame, button

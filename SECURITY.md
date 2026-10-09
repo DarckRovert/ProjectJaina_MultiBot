@@ -1,8 +1,8 @@
 # 🛡️ Política de Seguridad y Mitigación de Vulnerabilidades — MultiBot
 
-**Proyecto:** Ecosistema WoW Perú — Reino Andino  
-**Módulo Oficial:** #21 (`WoWPeru_MultiBot`)  
-**Repositorio Oficial:** [https://github.com/DarckRovert/WoWPeru_MultiBot](https://github.com/DarckRovert/WoWPeru_MultiBot)
+**Proyecto:** Ecosistema Project Jaina — Project Jaina  
+**Módulo Oficial:** #21 (`Wanos_MultiBot`)  
+**Repositorio Oficial:** [https://github.com/DarckRovert/Wanos_MultiBot](https://github.com/DarckRovert/Wanos_MultiBot)
 
 ---
 
@@ -27,5 +27,5 @@ Para prevenir desconexiones masivas del cliente por exceso de paquetes o penaliz
 ## 🚨 Reporte de Vulnerabilidades
 
 Si identificas cualquier anomalía, riesgo de seguridad o exploit en la comunicación cliente-servidor:
-- Comunícate directamente con el equipo de infraestructura de **WoW Perú** mediante el canal privado de soporte del Discord oficial.
-- Abre un reporte confidencial en el repositorio de GitHub: [GitHub Security Advisories / Issues](https://github.com/DarckRovert/WoWPeru_MultiBot/issues).
+- Comunícate directamente con el equipo de infraestructura de **Project Jaina** mediante el canal privado de soporte del Discord oficial.
+- Abre un reporte confidencial en el repositorio de GitHub: [GitHub Security Advisories / Issues](https://github.com/DarckRovert/Wanos_MultiBot/issues).

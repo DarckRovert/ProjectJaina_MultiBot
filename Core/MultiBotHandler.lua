@@ -71,7 +71,7 @@ local function ReconnectExistingGroupBots(reason)
 		and bridge.botLifecycleCapable == true
 		and bridge.botTargetResolveCapable == true then
 		-- Structured lifecycle mode: group reconnect is explicit from the
-		-- roster row and must never auto-send ".playerbot bot add".
+		-- roster row and must never auto-send ".playerbots bot add".
 		return false
 	end
 
@@ -91,7 +91,7 @@ local function ReconnectExistingGroupBots(reason)
 		for i = 1, GetNumRaidMembers() do
 			local raidName = UnitName("raid" .. i)
 			if raidName and raidName ~= "" and raidName ~= playerName then
-				SendChatMessage(".playerbot bot add " .. raidName, "SAY")
+				SendChatMessage(".playerbots bot add " .. raidName, "SAY")
 				sent = sent + 1
 			end
 		end
@@ -99,7 +99,7 @@ local function ReconnectExistingGroupBots(reason)
 		for i = 1, GetNumPartyMembers() do
 			local partyName = UnitName("party" .. i)
 			if partyName and partyName ~= "" and partyName ~= playerName then
-				SendChatMessage(".playerbot bot add " .. partyName, "SAY")
+				SendChatMessage(".playerbots bot add " .. partyName, "SAY")
 				sent = sent + 1
 			end
 		end
@@ -165,7 +165,7 @@ function MultiBot.HandleOnUpdate(pElapsed)
 
 		if(MultiBot.isMember(tTable[MultiBot.timer.invite.index]) == false) then
 			SendChatMessage(MultiBot.doReplace(MultiBot.L("info.inviting"), "NAME", tTable[MultiBot.timer.invite.index]), "SAY")
-			SendChatMessage(".playerbot bot add " .. tTable[MultiBot.timer.invite.index], "SAY")
+			SendChatMessage(".playerbots bot add " .. tTable[MultiBot.timer.invite.index], "SAY")
 			MultiBot.timer.invite.needs = MultiBot.timer.invite.needs - 1
 		end
 
@@ -965,7 +965,7 @@ local function bindUnitToggleHandlers(button, options)
 			return
 		end
 
-		SendChatMessage(".playerbot bot remove " .. pButton.name, "SAY")
+		SendChatMessage(".playerbots bot remove " .. pButton.name, "SAY")
 		hideButtonUnitFrame(pButton)
 		pButton.setDisable()
 	end
@@ -976,7 +976,7 @@ local function bindUnitToggleHandlers(button, options)
 				MultiBot.ShowHideSwitch(pButton.parent.frames[pButton.name])
 			end
 		else
-			SendChatMessage(".playerbot bot add " .. pButton.name, "SAY")
+			SendChatMessage(".playerbots bot add " .. pButton.name, "SAY")
 			pButton.setEnable()
 		end
 	end
@@ -1358,6 +1358,15 @@ function MultiBot.HandleGameObjectWhisper(rawMsg, author)
 	return true
 end
 
+local function refreshGroupRosterIndexes()
+	local bridge = MultiBot and MultiBot.bridge
+	if bridge and bridge.connected == true
+		and type(bridge.roster) == "table"
+		and MultiBot.SyncBridgeRosterToPlayers then
+		MultiBot.SyncBridgeRosterToPlayers(bridge.roster)
+	end
+end
+
 function MultiBot.HandleMultiBotEvent(event, ...)
 	local arg1, arg2, arg3, arg4 = ...
 	perfCount("events.total")
@@ -1365,6 +1374,8 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 		perfCount("events." .. string.lower(event))
 	end
 	if(event == "PLAYER_LOGOUT") then
+		MultiBot._groupReconnectDone = nil
+		MultiBot._lastGroupReconnectAt = nil
 		saveBoundFramePoints()
 		savePortalMemory()
 
@@ -1450,15 +1461,6 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 
 		if event ~= "PLAYER_ENTERING_WORLD" then
 			if event ~= "UNIT_PET" then
-				local function refreshGroupRosterIndexes()
-					local bridge = MultiBot and MultiBot.bridge
-					if bridge and bridge.connected == true
-						and type(bridge.roster) == "table"
-						and MultiBot.SyncBridgeRosterToPlayers then
-						MultiBot.SyncBridgeRosterToPlayers(bridge.roster)
-					end
-				end
-
 				if MultiBot.TimerAfter then
 					MultiBot.TimerAfter(0.8, function()
 						refreshGroupRosterIndexes()
@@ -1477,6 +1479,8 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 	-- PLAYER:ENTERING --
 
 	if(event == "PLAYER_ENTERING_WORLD") then
+        MultiBot._groupReconnectDone = nil
+        MultiBot._lastGroupReconnectAt = nil
         MultiBot.dprint("EVT", "PLAYER_ENTERING_WORLD") -- DEBUG
 
         if MultiBot.Comm and MultiBot.Comm.OnPlayerEnteringWorld then
@@ -1485,13 +1489,15 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 
         if MultiBot.TimerAfter then
             MultiBot.TimerAfter(1.5, function()
+                refreshGroupRosterIndexes()
                 ReconnectExistingGroupBots("entering-world")
             end)
         else
+            refreshGroupRosterIndexes()
             ReconnectExistingGroupBots("entering-world")
         end
 
-        SendChatMessage(".account", "SAY")
+        -- SendChatMessage(".account", "SAY") -- Silenciado: No filtrar en /say
 
         if(MultiBot.init == nil) then
             MultiBot.init = true
@@ -1522,7 +1528,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
                     return
                 end
 
-                SendChatMessage(".playerbot bot list", "SAY")
+                SendChatMessage(".playerbots bot list", "SAY")
             end)
         end
 
@@ -1625,7 +1631,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 			tPlayer.name = tName
 
 			tPlayer.doLeft = function(pButton)
-				SendChatMessage(".playerbot bot self", "SAY")
+				SendChatMessage(".playerbots bot self", "SAY")
 				MultiBot.OnOffSwitch(pButton)
 			end
 
@@ -1738,7 +1744,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 			if(GetNumRaidMembers() > 4) then
 				for i = 1, GetNumRaidMembers() do
 					local raidName = UnitName("raid" .. i)
-					SendChatMessage(".playerbot bot add " .. raidName, "SAY")
+					SendChatMessage(".playerbots bot add " .. raidName, "SAY")
 				end
 
 				return
@@ -1749,7 +1755,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 			if(GetNumPartyMembers() > 0) then
 				for i = 1, GetNumPartyMembers() do
 					local partyName = UnitName("party" .. i)
-					SendChatMessage(".playerbot bot add " .. partyName, "SAY")
+					SendChatMessage(".playerbots bot add " .. partyName, "SAY")
 				end
 
 				return

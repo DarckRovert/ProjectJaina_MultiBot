@@ -68,14 +68,11 @@ local function registerNativeSlashAlias(commandName, aliasIndex, lowerAlias, han
 end
 
 local function createAliasRegistrar(commandName, handler, registerWithAce)
-  if registerWithAce then
-    return function(aliasIndex, normalizedAlias)
-      MultiBot:RegisterChatCommand(string.lower(normalizedAlias), handler)
-    end
-  end
-
   return function(aliasIndex, normalizedAlias)
     registerNativeSlashAlias(commandName, aliasIndex, string.lower(normalizedAlias), handler)
+    if registerWithAce and type(MultiBot.RegisterChatCommand) == "function" then
+      MultiBot:RegisterChatCommand(string.lower(normalizedAlias), handler)
+    end
   end
 end
 
@@ -2509,7 +2506,7 @@ function MultiBot.BindUnitToggleHandlers(button, options)
       return
     end
 
-    SendChatMessage(".playerbot bot remove " .. unitButton.name, "SAY")
+    SendChatMessage(".playerbots bot remove " .. unitButton.name, "SAY")
     if MultiBot.SetBridgeBotOnlineState and unitButton.bridge ~= nil then
       MultiBot.SetBridgeBotOnlineState(unitButton, false)
     else
@@ -2565,7 +2562,7 @@ function MultiBot.BindUnitToggleHandlers(button, options)
       return
     end
 
-    SendChatMessage(".playerbot bot add " .. unitButton.name, "SAY")
+    SendChatMessage(".playerbots bot add " .. unitButton.name, "SAY")
     unitButton.setEnable()
 
     if (unitButton._mbFavoritePlaceholder
@@ -2641,7 +2638,7 @@ local function BindBridgeSelfBotHandler(button)
     end
 
     if MultiBot.allowLegacyChatFallback == true then
-      SendChatMessage(".playerbot bot self", "SAY")
+      SendChatMessage(".playerbots bot self", "SAY")
       MultiBot.OnOffSwitch(pButton)
     end
   end
@@ -4338,7 +4335,7 @@ end
 --         MultiBot.AddClassToTarget("warlock","female") -- Female
 MultiBot.AddClassToTarget = function(classCmd, gender)
   if not classCmd then return end             -- secure that
-  local msg = ".playerbot bot addclass " .. classCmd
+  local msg = ".playerbots bot addclass " .. classCmd
   if gender then                                 -- male / female / 0 / 1
 	msg = msg .. " " .. gender
 	print("[DBG] Message de sortie :" ,msg)
@@ -4356,7 +4353,7 @@ end
 
 -- Init Wrapper
 function MultiBot.InitAuto(name)
-  SendChatMessage(".playerbot bot init=auto " .. name, "SAY")
+  SendChatMessage(".playerbots bot init=auto " .. name, "SAY")
 end
 
 -- Localization payload moved to AceLocale files.

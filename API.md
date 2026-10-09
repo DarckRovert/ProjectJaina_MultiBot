@@ -1,8 +1,8 @@
 # 🔌 Especificación Técnica y Arquitectura de API — MultiBot
 
-[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://wow-peru.lat/)
-[![Repositorio](https://img.shields.io/badge/GitHub-DarckRovert%2FWoWPeru__MultiBot-black?logo=github)](https://github.com/DarckRovert/WoWPeru_MultiBot)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://wow-peru.lat/)
+[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://worldofwanos.com/)
+[![Repositorio](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos__MultiBot-black?logo=github)](https://github.com/DarckRovert/Wanos_MultiBot)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://worldofwanos.com/)
 
 ---
 
@@ -10,7 +10,7 @@
 
 **MultiBot** es una suite completa de control e interfaz de usuario para el sistema `mod-playerbots` en World of Warcraft 3.3.5a (WotLK Build 12340). Implementa una arquitectura moderna **Bridge-First** que minimiza la dependencia del chat convencional en favor de mensajes de addon estructurados canalizados a través de `mod-multibot-bridge`.
 
-- **Módulo Oficial:** #21 del Ecosistema WoW Perú.
+- **Módulo Oficial:** #21 del Ecosistema Project Jaina.
 - **Framework Base:** `AceAddon-3.0`, `AceEvent-3.0`, `AceConsole-3.0`, `AceDB-3.0`, `AceTimer-3.0`.
 - **Runtime:** Lua 5.1 (Blizzard Virtual Machine 3.3.5a).
 
