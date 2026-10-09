@@ -1,9 +1,9 @@
 # 📦 Guía de Instalación y Despliegue — MultiBot
 
-[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://worldofwanos.com/)
+[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://projectjaina.com/)
 [![Core Compatibility](https://img.shields.io/badge/Core-AzerothCore%20%7C%20mod--playerbots-red.svg)](https://github.com/azerothcore/mod-playerbots)
 [![Repositorio](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos__MultiBot-black?logo=github)](https://github.com/DarckRovert/Wanos_MultiBot)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://worldofwanos.com/)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://projectjaina.com/)
 
 ---
 
