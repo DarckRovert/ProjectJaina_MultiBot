@@ -1,10 +1,10 @@
 # 🤖 Project Jaina — MultiBot (Control Táctico de Playerbots)
 
-[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://projectjaina.com/)
+[![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 [![Core Compatibility](https://img.shields.io/badge/Core-AzerothCore%20%7C%20mod--playerbots-red.svg)](https://github.com/azerothcore/mod-playerbots)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
-[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FWanos__MultiBot-black?logo=github)](https://github.com/DarckRovert/Wanos_MultiBot)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://projectjaina.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__MultiBot-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_MultiBot)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 
 Suite de interfaz gráfica integral y control de escuadrón de **Playerbots** (`mod-playerbots`) para **World of Warcraft: Wrath of the Lich King 3.3.5a (Build 12340)**, adaptada e integrada oficialmente en el ecosistema de **Project Jaina — Project Jaina** como el **Módulo Oficial #21**.
 
@@ -133,10 +133,10 @@ MultiBot responde a los siguientes comandos de barra en el cliente:
 ## 🌐 Integración con el Ecosistema Project Jaina
 
 Como el **Módulo Oficial #21**, MultiBot interactúa armónicamente con la suite completa de Project Jaina:
-- **`Wanos_RaidSuite`:** Asignación coordinada de marcas de banda y roles tácticos.
-- **`Wanos_AdminTools`:** Complementación entre herramientas de GM y control de bots de prueba.
-- **`Wanos_Companion`:** Coexistencia limpia en red P2P sin colisión de prefijos ni canales de chat.
-- **`Wanos_Graphics`:** Interfaz visual nítida en resoluciones panorámicas Full HD y 4K.
+- **`ProjectJaina_RaidSuite`:** Asignación coordinada de marcas de banda y roles tácticos.
+- **`ProjectJaina_AdminTools`:** Complementación entre herramientas de GM y control de bots de prueba.
+- **`ProjectJaina_Companion`:** Coexistencia limpia en red P2P sin colisión de prefijos ni canales de chat.
+- **`ProjectJaina_Graphics`:** Interfaz visual nítida en resoluciones panorámicas Full HD y 4K.
 
 Para más detalles técnicos, consulta [ECOSYSTEM_REGISTRY.md](ECOSYSTEM_REGISTRY.md) y [API.md](API.md).
 

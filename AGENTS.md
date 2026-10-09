@@ -1,8 +1,8 @@
 # 🤖 Directrices de Ingeniería y Restricciones para Agentes IA — MultiBot
 
-**Addon:** `MultiBot` (`Wanos_MultiBot`)  
+**Addon:** `MultiBot` (`ProjectJaina_MultiBot`)  
 **Ecosistema:** Project Jaina — Project Jaina (Módulo Oficial #21)  
-**Repositorio Oficial:** [https://github.com/DarckRovert/Wanos_MultiBot](https://github.com/DarckRovert/Wanos_MultiBot)  
+**Repositorio Oficial:** [https://github.com/DarckRovert/ProjectJaina_MultiBot](https://github.com/DarckRovert/ProjectJaina_MultiBot)  
 **Motor Gráfico y Runtime:** WoW 3.3.5a WotLK (Build 12340) / Lua 5.1 (Blizzard VM)
 
 ---
