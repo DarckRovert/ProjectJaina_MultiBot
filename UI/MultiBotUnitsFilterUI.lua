@@ -15,13 +15,13 @@ local FILTERS = {
 }
 
 local FILTER_FRAME_NAME = "Filter"
-local FILTER_ROOT_ICON = "Interface\\AddOns\\MultiBot\\Icons\\filter_none.blp"
+local FILTER_ROOT_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\filter_none.blp"
 local FILTER_FRAME_X = -30
 local FILTER_FRAME_Y = 2
 local FILTER_STEP_X = -26
 
 local function buildFilterTexture(icon)
-    return "Interface\\AddOns\\MultiBot\\Icons\\" .. icon .. ".blp"
+    return "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\" .. icon .. ".blp"
 end
 
 local function addFilterButton(filterFrame, definition, index)

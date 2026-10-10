@@ -1,22 +1,28 @@
-# 📜 Aviso Legal y Atribuciones — MultiBot
+# 📜 Aviso Legal y Atribución — ProjectJaina_MultiBot
 
-Este módulo forma parte de la infraestructura oficial de cliente de **Project Jaina - Project Jaina**.
-
----
-
-## 🏛️ Atribución de Autoría Original y Desarrollo Comunitario
-
-- **Autor Original de MultiBot:** `Nico Löbbert` (Creador del addon original MultiBot para la interfaz de Playerbot en WoW 3.3.5a).
-- **Desarrollador & Maintainer de MultiBot Chatless / Standalone:** `Wishmaster117 aka TheWarlock` (Alex Plex). Creador de la arquitectura *Bridge-First*, eliminación de spam de chat automático e integración estructurada con `mod-multibot-bridge`.
-- **Contribuidores Comunitarios:** `Macx-Lio`, `ike3`, el equipo de `mod-playerbots` y la comunidad de emulación de **AzerothCore**.
-- **Adaptación, Estandarización y Mantenimiento:** Project Jaina Dev Team (`DarckRovert` / `Elnazzareno`).
-- **Repositorio Upstream Original:** [Wishmaster117/MultiBot-Chatless](https://github.com/Wishmaster117/MultiBot-Chatless)
-- **Licencia:** Distribuido bajo los términos de la **GNU General Public License v3 (GPL-3.0)**, cuyos términos se respetan y preservan íntegramente en este repositorio (véase [LICENSE](LICENSE)).
+Este repositorio forma parte del ecosistema oficial de **Project Jaina**.
+Contiene Panel de control y gestión táctica de compañeros Playerbots (mod-playerbots), asignación de roles (Tanque, Sanador, DPS), comandos autoritativos `.playerbots bot add/remove` y formaciones. para el cliente World of Warcraft 3.3.5a (Build 12340).
 
 ---
 
-## 🏛️ Propiedad Intelectual y Marcas
+## 1. Autoría y Desarrollo Oficial
+* **Desarrollador Principal:** DarckRovert (Ingame: `Elnazzareno`) & Antigravity (Mythos 5)
+* **Ecosistema:** [Project Jaina Oficial](https://darckrovert.github.io/ProjectJaina_Web/)
+* **Repositorio Oficial:** [DarckRovert/ProjectJaina_MultiBot](https://github.com/DarckRovert/ProjectJaina_MultiBot)
 
-- **World of Warcraft**, **Wrath of the Lich King** y **Blizzard Entertainment** son marcas comerciales o marcas registradas de Blizzard Entertainment, Inc. en los Estados Unidos y/u otros países.
-- Este proyecto es una obra comunitaria e independiente desarrollada para la preservación, optimización, accesibilidad y mejora de la experiencia de juego en servidores privados de la versión 3.3.5a (Build 12340).
-- No cuenta con respaldo ni afiliación oficial con Blizzard Entertainment, Inc.
+---
+
+## 2. Arquitectura y Protocolo Autoritativo
+* **Prefijo de Red:** `WP_BOT`
+* **Integración Servidor:** `mod-playerbots en AzerothCore`
+* **Variables Guardadas:** `MultiBotDB`
+* **Comandos Slash:** `/multibot, /mb`
+
+---
+
+## 3. Cumplimiento de Políticas de Interfaz (Blizzard Custom UI Policy)
+En estricto cumplimiento de la Política de Interfaz de Usuario Personalizada de Blizzard Entertainment (2009):
+1. **Gratuito y Abierto:** Este software es completamente gratuito y de código abierto para la comunidad de jugadores.
+2. **Sin Alteración de Binarios:** No realiza ingeniería inversa, inyección de código ni altera binarios del juego (`WoW.exe`).
+3. **Aislamiento FrameXML:** Respeta el aislamiento de ejecución en FrameXML y no genera taint en subsistemas protegidos de combate.
+4. **Sin Publicidad ni Cobro:** No incluye anuncios publicitarios ni solicita compensación monetaria directa para el uso de sus funciones in-game.

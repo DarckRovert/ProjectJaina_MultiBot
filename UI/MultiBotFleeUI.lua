@@ -1,16 +1,16 @@
 if not MultiBot then return end
 
 local FLEE_BUTTONS = {
-    { name = "Flee", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee.blp", cmd = "flee", tip = "flee", scope = "group" },
-    { name = "Ranged", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_ranged.blp", cmd = "@ranged flee", tip = "ranged", scope = "group" },
-    { name = "Melee", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_melee.blp", cmd = "@melee flee", tip = "melee", scope = "group" },
-    { name = "Healer", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_healer.blp", cmd = "@healer flee", tip = "healer", scope = "group" },
-    { name = "Dps", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_dps.blp", cmd = "@dps flee", tip = "dps", scope = "group" },
-    { name = "Tank", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_tank.blp", cmd = "@tank flee", tip = "tank", scope = "group" },
-    { name = "Target", icon = "Interface\\AddOns\\MultiBot\\Icons\\flee_target.blp", cmd = "flee", tip = "target", scope = "target" },
+    { name = "Flee", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee.blp", cmd = "flee", tip = "flee", scope = "group" },
+    { name = "Ranged", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_ranged.blp", cmd = "@ranged flee", tip = "ranged", scope = "group" },
+    { name = "Melee", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_melee.blp", cmd = "@melee flee", tip = "melee", scope = "group" },
+    { name = "Healer", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_healer.blp", cmd = "@healer flee", tip = "healer", scope = "group" },
+    { name = "Dps", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_dps.blp", cmd = "@dps flee", tip = "dps", scope = "group" },
+    { name = "Tank", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_tank.blp", cmd = "@tank flee", tip = "tank", scope = "group" },
+    { name = "Target", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee_target.blp", cmd = "flee", tip = "target", scope = "target" },
 }
 
-local FLEE_ICON = "Interface\\AddOns\\MultiBot\\Icons\\flee.blp"
+local FLEE_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\flee.blp"
 local FLEE_FRAME_NAME = "Flee"
 local FLEE_MAIN_X = -102
 local FLEE_FRAME_X = -104

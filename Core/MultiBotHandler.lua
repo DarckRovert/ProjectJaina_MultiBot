@@ -1406,7 +1406,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 
 	-- ADDON:LOADED --
 
-    if(event == "ADDON_LOADED" and arg1 == "MultiBot") then
+    if(event == "ADDON_LOADED" and (arg1 == "MultiBot" or arg1 == "ProjectJaina_MultiBot")) then
 	        -- Core startup helpers are now routed via lifecycle (OnInitialize/OnEnable).
 	        -- [EXISTANT] restauration des positions / états
 		restoreBoundFramePoints()
@@ -2064,7 +2064,7 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 				table.insert(MultiBot.index.classes.friends[tClass], tName)
 			end
 
-			tButton.setTexture("Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp")
+			tButton.setTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp")
 			tButton.tip = MultiBot.toTip(tClass, tLevel, tName)
 			tButton.class = tClass
 		end

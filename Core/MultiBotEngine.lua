@@ -1660,7 +1660,7 @@ MultiBot.newButton = function(pParent, pX, pY, pSize, pTexture, pTip, oTemplate)
 	button.icon:Show()
 
 	button.border = button:CreateTexture(nil, "ARTWORK")
-	button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+	button.border:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\border.blp")
 	button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
 	button.border:SetSize(pSize + 4, pSize + 4)
 	button.border:Hide()
@@ -2523,7 +2523,7 @@ MultiBot.addPlayer = function(pClass, pName)
   local btn   = units.buttons[pName]
   local tClass = (MultiBot.toClass and MultiBot.toClass(pClass)) or (pClass or "Unknown")
   tClass = tClass or "Unknown"
-  local tTexture = "Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp"
+  local tTexture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp"
   if not btn then
     btn = units.addButton(pName, 0, 0, tTexture, MultiBot.toTip(tClass, nil, pName))
     btn:Hide()
@@ -2574,7 +2574,7 @@ MultiBot.addMember = function(pClass, pLevel, pName)
     tEffectiveClass = tButton.class
   end
 
-  local tTexture = "Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tEffectiveClass) .. ".blp"
+  local tTexture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tEffectiveClass) .. ".blp"
   if(tButton == nil) then
     tButton = tUnits.addButton(pName, 0, 0, tTexture, MultiBot.toTip(tEffectiveClass, tLevel, pName))
     tButton:Hide()
@@ -2616,7 +2616,7 @@ MultiBot.addFriend = function(pClass, pLevel, pName)
     tEffectiveClass = tButton.class
   end
 
-  local tTexture = "Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tEffectiveClass) .. ".blp"
+  local tTexture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tEffectiveClass) .. ".blp"
   if(tButton == nil) then
     tButton = tUnits.addButton(pName, 0, 0, tTexture, MultiBot.toTip(tEffectiveClass, tLevel, pName))
     tButton:Hide()
@@ -2644,7 +2644,7 @@ end
 
 MultiBot.addActive = function(pClass, pLevel, pName)
 	local tClass = MultiBot.toClass(pClass)
-	local tTexture = "Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp"
+	local tTexture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tClass) .. ".blp"
 	local tUnits = MultiBot.frames["MultiBar"].frames["Units"]
 	local tButton = tUnits.buttons[pName]
 

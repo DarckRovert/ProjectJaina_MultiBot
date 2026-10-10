@@ -2,7 +2,7 @@ if not MultiBot then return end
 
 local MODE_FRAME_NAME = "Mode"
 local MODE_BUTTON_NAME = "Mode"
-local MODE_BUTTON_ICON = "Interface\\AddOns\\MultiBot\\Icons\\mode_passive.blp"
+local MODE_BUTTON_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\mode_passive.blp"
 local MODE_FRAME_X = -172
 local MODE_FRAME_Y = 34
 
@@ -48,7 +48,7 @@ local function createModeUI(tLeft)
         end
     end
 
-    modeFrame.addButton("Grind", 0, 30, "Interface\\AddOns\\MultiBot\\Icons\\mode_grind.blp", MultiBot.L("tips.mode.grind")).doLeft = function(button)
+    modeFrame.addButton("Grind", 0, 30, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\mode_grind.blp", MultiBot.L("tips.mode.grind")).doLeft = function(button)
         if MultiBot.SelectToGroup(button.parent.parent, MODE_FRAME_NAME, button.texture, "grind") then
             bindModeToggleAction(button.parent.parent.buttons[MODE_BUTTON_NAME], "grind", "follow")
         end
@@ -56,7 +56,7 @@ local function createModeUI(tLeft)
 end
 
 local function createStayFollowUI(tLeft)
-    tLeft.addButton("Stay", -136, 0, "Interface\\AddOns\\MultiBot\\Icons\\command_stay.blp", MultiBot.L("tips.stallow.stay")).doLeft = function(button)
+    tLeft.addButton("Stay", -136, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\command_stay.blp", MultiBot.L("tips.stallow.stay")).doLeft = function(button)
         if MultiBot.ActionToGroup("stay") then
             button.parent.buttons["Follow"].doShow()
             button.parent.buttons["ExpandFollow"].setDisable()
@@ -65,7 +65,7 @@ local function createStayFollowUI(tLeft)
         end
     end
 
-    tLeft.addButton("Follow", -136, 0, "Interface\\AddOns\\MultiBot\\Icons\\command_follow.blp", MultiBot.L("tips.stallow.follow")).doHide().doLeft = function(button)
+    tLeft.addButton("Follow", -136, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\command_follow.blp", MultiBot.L("tips.stallow.follow")).doHide().doLeft = function(button)
         if MultiBot.ActionToGroup("follow") then
             button.parent.buttons["Stay"].doShow()
             button.parent.buttons["ExpandFollow"].setEnable()
@@ -74,13 +74,13 @@ local function createStayFollowUI(tLeft)
         end
     end
 
-    tLeft.addButton("ExpandStay", -136, 0, "Interface\\AddOns\\MultiBot\\Icons\\command_stay.blp", MultiBot.tips.expand.stay).doHide().setDisable().doLeft = function(button)
+    tLeft.addButton("ExpandStay", -136, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\command_stay.blp", MultiBot.tips.expand.stay).doHide().setDisable().doLeft = function(button)
         MultiBot.ActionToGroup("stay")
         button.parent.buttons["ExpandFollow"].setDisable()
         button.setEnable()
     end
 
-    tLeft.addButton("ExpandFollow", -170, 0, "Interface\\AddOns\\MultiBot\\Icons\\command_follow.blp", MultiBot.tips.expand.follow).doHide().doLeft = function(button)
+    tLeft.addButton("ExpandFollow", -170, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\command_follow.blp", MultiBot.tips.expand.follow).doHide().doLeft = function(button)
         MultiBot.ActionToGroup("follow")
         button.parent.buttons["ExpandStay"].setDisable()
         button.setEnable()

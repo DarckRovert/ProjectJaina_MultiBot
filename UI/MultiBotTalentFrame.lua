@@ -1102,7 +1102,7 @@ function MultiBot.InitializeTalentFrameModule()
     do
         local layout = MultiBot.TalentHostContentLayout or DEFAULT_TALENT_HOST_CONTENT_LAYOUT
         local tTab = MultiBot.talent.addFrame(MultiBot.TalentFrameKeys.TALENT_TREE_1, -830 + (layout.TALENT_TREES_TUNE_X or 0), 518 + (layout.TALENT_TREES_TUNE_Y or 0), 28, 170, 408)
-        tTab.addTexture("Interface\\AddOns\\MultiBot\\Textures\\White.blp")
+        tTab.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\White.blp")
         tTab.addText("Title", MB_TAB_TITLE_DEFAULT, "CENTER", 0, 214, 13)
         tTab.arrows = {}
         tTab.value = 0
@@ -1112,7 +1112,7 @@ function MultiBot.InitializeTalentFrameModule()
     do
         local layout = MultiBot.TalentHostContentLayout or DEFAULT_TALENT_HOST_CONTENT_LAYOUT
         local tTab = MultiBot.talent.addFrame(MultiBot.TalentFrameKeys.TALENT_TREE_2, -656 + (layout.TALENT_TREES_TUNE_X or 0), 518 + (layout.TALENT_TREES_TUNE_Y or 0), 28, 170, 408)
-        tTab.addTexture("Interface\\AddOns\\MultiBot\\Textures\\White.blp")
+        tTab.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\White.blp")
         tTab.addText("Title", MB_TAB_TITLE_DEFAULT, "CENTER", 0, 214, 13)
         tTab.arrows = {}
         tTab.value = 0
@@ -1122,7 +1122,7 @@ function MultiBot.InitializeTalentFrameModule()
     do
         local layout = MultiBot.TalentHostContentLayout or DEFAULT_TALENT_HOST_CONTENT_LAYOUT
         local tTab = MultiBot.talent.addFrame(MultiBot.TalentFrameKeys.TALENT_TREE_3, -482 + (layout.TALENT_TREES_TUNE_X or 0), 518 + (layout.TALENT_TREES_TUNE_Y or 0), 28, 170, 408)
-        tTab.addTexture("Interface\\AddOns\\MultiBot\\Textures\\White.blp")
+        tTab.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\White.blp")
         tTab.addText("Title", MB_TAB_TITLE_DEFAULT, "CENTER", 0, 214, 13)
         tTab.arrows = {}
         tTab.value = 0
@@ -1304,7 +1304,7 @@ function MultiBot.InitializeTalentFrameModule()
 
                 local tex = itemTexture or spellTexture
                 local isFallback = tex == nil
-                tex = tex or "Interface\\AddOns\\MultiBot\\Textures\\UI-GlyphFrame-Glow.blp"
+                tex = tex or "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\UI-GlyphFrame-Glow.blp"
                 local btn = f.frames.IconBtn
                 if not btn then
                     btn = MultiBot.talent.createGlyphSocketIconButton(f)
@@ -1331,7 +1331,7 @@ function MultiBot.InitializeTalentFrameModule()
                 if ov and not ov.texture then
                     ov.texture = ov:CreateTexture(nil, "BORDER")
                     ov.texture:SetAllPoints(ov)
-                    local base = "Interface\\AddOns\\MultiBot\\Textures\\"
+                    local base = "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\"
                     ov.texture:SetTexture(
                         base .. (typ == "Major"
                                 and "gliph_majeur_layout.blp"
@@ -1365,7 +1365,7 @@ function MultiBot.InitializeTalentFrameModule()
         local layout = MultiBot.TalentHostContentLayout or DEFAULT_TALENT_HOST_CONTENT_LAYOUT
         local tTab = MultiBot.talent.addFrame(MultiBot.TalentFrameKeys.GLYPH_OVERVIEW, -513 + (layout.GLYPH_OVERVIEW_TUNE_X or 0), 518 + (layout.GLYPH_OVERVIEW_TUNE_Y or 0), 28, 456, 430)
         tTab.addFrame("Glow", 0, 0, 28, 456, 430).setAlpha(0.5).doHide()
-        tTab.addTexture("Interface\\AddOns\\MultiBot\\Textures\\Background-GlyphFrame.blp")
+        tTab.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Background-GlyphFrame.blp")
         tTab:Hide()
     end
 
@@ -1767,9 +1767,9 @@ function MultiBot.InitializeTalentFrameModule()
 
     MultiBot.talent.addArrow = function(pTab, pID, pNeeds, piX, piY, pTexture)
 	local tArrow = pTab.addFrame("Arrow" .. pID, piX * pTab.grid.icons.size - pTab.grid.arrows.x, pTab.grid.arrows.y - piY * pTab.grid.icons.size, pTab.grid.arrows.size)
-	tArrow.inactive = "Interface\\AddOns\\MultiBot\\Textures\\Talent_Silver_" .. pTexture .. ".blp"
+	tArrow.inactive = "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Talent_Silver_" .. pTexture .. ".blp"
 	tArrow.addTexture(tArrow.inactive)
-	tArrow.active = "Interface\\AddOns\\MultiBot\\Textures\\Talent_Gold_" .. pTexture .. ".blp"
+	tArrow.active = "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Talent_Gold_" .. pTexture .. ".blp"
 	tArrow.needs = pNeeds
 	tArrow:SetFrameLevel(MultiBot.talent.getTalentTreeLayerLevel(pTab, 1))
 	return tArrow
@@ -1976,7 +1976,7 @@ function MultiBot.InitializeTalentFrameModule()
     MultiBot.talent.addValue = function(pTab, pID, piX, piY, pRank, pMax)
 	local tColor = MultiBot.IF(pRank > 0, MultiBot.IF(pRank < pMax, "|cff4db24d", "|cffffcc00"), "|cffffffff")
 	local tValue = pTab.addFrame(pID, piX * pTab.grid.icons.size - pTab.grid.values.x, pTab.grid.values.y - piY * pTab.grid.icons.size, 24, 18, 12)
-	tValue.addTexture("Interface\\AddOns\\MultiBot\\Textures\\Talent_Black.blp")
+	tValue.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Talent_Black.blp")
 	tValue.addText("Value", tColor .. pRank .. "/" .. pMax .. "|r", "CENTER", -0.5, 1, 10)
 	if(MultiBot.talent.points == 0 and pRank == 0) then tValue:Hide() end
 	tValue:SetFrameLevel(MultiBot.talent.getTalentTreeLayerLevel(pTab, 3))
@@ -2009,7 +2009,7 @@ function MultiBot.InitializeTalentFrameModule()
     function MultiBot.talent.buildTalentTreeFromData(treeIndex, classRows, arrowRows, resolveTalent)
         local marker = MultiBot.talent.class .. treeIndex
         local tTab = MultiBot.talent.setGrid(MultiBot.talent.getTalentTreeFrame(treeIndex))
-        tTab.setTexture("Interface\\AddOns\\MultiBot\\Textures\\Talent_" .. marker .. ".blp")
+        tTab.setTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Talent_" .. marker .. ".blp")
         tTab.value, tTab.id = 0, treeIndex
 
         for j = 1, #arrowRows do
@@ -2516,7 +2516,7 @@ function MultiBot.InitializeTalentFrameModule()
         end
         tex = tex or GetSpellTexture(itemID)
         local isFallback = tex == nil
-        tex = tex or "Interface\\AddOns\\MultiBot\\Textures\\UI-GlyphFrame-Glow.blp"
+        tex = tex or "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\UI-GlyphFrame-Glow.blp"
         MultiBot.talent.applyGlyphSocketIconLayout(button, socketFrame, isFallback)
         button.icon:SetTexture(MultiBot.SafeTexturePath(tex))
         button.icon:Show()
@@ -2602,7 +2602,7 @@ function MultiBot.InitializeTalentFrameModule()
         if overlay and not overlay.texture then
             overlay.texture = overlay:CreateTexture(nil, "BORDER")
             overlay.texture:SetAllPoints(overlay)
-            local base = "Interface\\AddOns\\MultiBot\\Textures\\"
+            local base = "Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\"
             overlay.texture:SetTexture(base .. (socketFrame.type == "Major" and "gliph_majeur_layout.blp" or "gliph_mineur_layout.blp"))
         end
 

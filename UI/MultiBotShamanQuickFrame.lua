@@ -16,7 +16,7 @@ local HANDLE_WIDTH = 12
 local HANDLE_HEIGHT = 18
 local HANDLE_ALPHA = 0.45
 local HANDLE_HOVER_ALPHA = 0.85
---local HANDLE_ICON = "Interface\\AddOns\\MultiBot\\Icons\\class_shaman.blp"
+--local HANDLE_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_shaman.blp"
 
 local ELEMENT_DEFINITIONS = {
     {
@@ -808,7 +808,7 @@ function ShamanQuick:BuildRow(ownerName)
     row.defaultIcons = {}
 
     local mainTooltip = (MultiBot.L("tips.shaman.ownbutton") or "Shaman: %s"):format(ownerName)
-    local mainButton = createIconButton(row, string.format("MultiBotShamanQuickMain_%s", sanitizeName(ownerName)), "Interface\\AddOns\\MultiBot\\Icons\\class_shaman.blp", mainTooltip, BUTTON_SIZE)
+    local mainButton = createIconButton(row, string.format("MultiBotShamanQuickMain_%s", sanitizeName(ownerName)), "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_shaman.blp", mainTooltip, BUTTON_SIZE)
     mainButton:SetPoint("TOPLEFT", 0, 0)
     mainButton:RegisterForDrag("RightButton")
     mainButton:SetScript("OnDragStart", function()

@@ -2,7 +2,7 @@ if not MultiBot then return end
 
 local FORMATION_FRAME_NAME = "Format"
 local FORMATION_BUTTON_NAME = "Format"
-local FORMATION_DEFAULT_ICON = "Interface\\AddOns\\MultiBot\\Icons\\formation_near.blp"
+local FORMATION_DEFAULT_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_near.blp"
 local FORMATION_FRAME_X = -2
 local FORMATION_FRAME_Y = 34
 local FORMATION_CELL_WIDTH = 40
@@ -13,14 +13,14 @@ local latestFormationQueryToken = nil
 local latestFormationTooltipToken = nil
 
 local FORMATION_BUTTONS = {
-    { name = "Arrow", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_arrow.blp", value = "arrow" },
-    { name = "Queue", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_queue.blp", value = "queue" },
-    { name = "Near", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_near.blp", value = "near" },
-    { name = "Melee", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_melee.blp", value = "melee" },
-    { name = "Line", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_line.blp", value = "line" },
-    { name = "Circle", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_circle.blp", value = "circle" },
-    { name = "Chaos", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_chaos.blp", value = "chaos" },
-    { name = "Shield", icon = "Interface\\AddOns\\MultiBot\\Icons\\formation_shield.blp", value = "shield" },
+    { name = "Arrow", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_arrow.blp", value = "arrow" },
+    { name = "Queue", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_queue.blp", value = "queue" },
+    { name = "Near", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_near.blp", value = "near" },
+    { name = "Melee", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_melee.blp", value = "melee" },
+    { name = "Line", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_line.blp", value = "line" },
+    { name = "Circle", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_circle.blp", value = "circle" },
+    { name = "Chaos", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_chaos.blp", value = "chaos" },
+    { name = "Shield", icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\formation_shield.blp", value = "shield" },
 }
 
 local function formationText(key)

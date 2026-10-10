@@ -80,8 +80,8 @@ end
 MultiBot.addStats = function(pFrame, pIndex, pX, pY, pSize, pWidth, pHeight)
 	local tFrame = pFrame.addFrame(pIndex, pX, pY, pSize, pWidth, pHeight)
 	local tAddon = tFrame.addFrame("Addon", -2, 46, 48)
-	tAddon.addTexture("Interface\\AddOns\\MultiBot\\Icons\\xp_progress_99_percent.blp")
-	tFrame.addTexture("Interface\\AddOns\\MultiBot\\Textures\\Stats.blp")
+	tAddon.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_99_percent.blp")
+	tFrame.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Stats.blp")
 	tFrame:Hide()
 
 	tFrame.addText("Name", "", "TOPLEFT", STATS_TEXT_X, STATS_NAME_Y, STATS_TEXT_MAX_FONT)
@@ -96,47 +96,47 @@ MultiBot.addStats = function(pFrame, pIndex, pX, pY, pSize, pWidth, pHeight)
 
 		if pProgress >= 99 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_99_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_99_percent.blp"
 			)
 		elseif pProgress >= 90 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_90_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_90_percent.blp"
 			)
 		elseif pProgress >= 81 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_81_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_81_percent.blp"
 			)
 		elseif pProgress >= 72 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_72_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_72_percent.blp"
 			)
 		elseif pProgress >= 63 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_63_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_63_percent.blp"
 			)
 		elseif pProgress >= 54 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_54_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_54_percent.blp"
 			)
 		elseif pProgress >= 45 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_45_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_45_percent.blp"
 			)
 		elseif pProgress >= 36 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_36_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_36_percent.blp"
 			)
 		elseif pProgress >= 27 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_27_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_27_percent.blp"
 			)
 		elseif pProgress >= 18 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_18_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_18_percent.blp"
 			)
 		elseif pProgress >= 9 then
 			addonFrame.setTexture(
-				"Interface\\AddOns\\MultiBot\\Icons\\xp_progress_9_percent.blp"
+				"Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\xp_progress_9_percent.blp"
 			)
 		end
 

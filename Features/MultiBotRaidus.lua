@@ -230,13 +230,13 @@ end
 initRaidusAceWindow()
 
 if not raidusUsesAceWindow then
-    MultiBot.raidus.addTexture("Interface\\AddOns\\MultiBot\\Textures\\Raidus.blp")
+    MultiBot.raidus.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Raidus.blp")
 end
 
 MultiBot.raidus.addFrame("Pool", -20, 360, 28, 160, 490)
 if not raidusUsesAceWindow then
-    MultiBot.raidus.addFrame("Btop", -35, 822, 24, 128, 32).addTexture("Interface\\AddOns\\MultiBot\\Textures\\Raidus_Banner_Top.blp")
-    MultiBot.raidus.addFrame("Bbot", -35, 354, 24, 128, 32).addTexture("Interface\\AddOns\\MultiBot\\Textures\\Raidus_Banner_Bottom.blp")
+    MultiBot.raidus.addFrame("Btop", -35, 822, 24, 128, 32).addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Raidus_Banner_Top.blp")
+    MultiBot.raidus.addFrame("Bbot", -35, 354, 24, 128, 32).addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Raidus_Banner_Bottom.blp")
 end
 
 local RAIDUS_GROUP_SHIFT_X = -30
@@ -581,7 +581,7 @@ local function applyRaidusSlotTexture(slotFrame, useClassColor)
 		end
 	end
 
-	slotFrame.texture:SetTexture(MultiBot.SafeTexturePath("Interface\\AddOns\\MultiBot\\Textures\\grey.blp"))
+	slotFrame.texture:SetTexture(MultiBot.SafeTexturePath("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\grey.blp"))
 	slotFrame.texture:SetVertexColor(1, 1, 1, 1)
 end
 
@@ -1349,7 +1349,7 @@ MultiBot.raidus.setRaidus = function()
 		local tBot = tBots[tIndex]
 
 		local tFrame = tPool.addFrame("Slot" .. tSlot, 0, tY, 28, 160, 36)
-		tFrame.addTexture("Interface\\AddOns\\MultiBot\\Textures\\grey.blp")
+		tFrame.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\grey.blp")
 		applyRaidusSlotTextureInset(tFrame)
 		tFrame:SetResizable(false)
 		tFrame:SetMovable(true)
@@ -1359,7 +1359,7 @@ MultiBot.raidus.setRaidus = function()
 		tFrame.bot = tBot
 		setRaidusSlotRoleBorder(tFrame, nil, 0.22)
 
-        local tButton = tFrame.addButton("Icon", -128, 3, "Interface\\AddOns\\MultiBot\\Icons\\class_" .. string.lower(tFrame.class) .. ".blp", "")
+        local tButton = tFrame.addButton("Icon", -128, 3, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_" .. string.lower(tFrame.class) .. ".blp", "")
 
 		tButton:SetScript("OnEnter", function(pButton)
 			local bot = pButton.parent.bot
@@ -1383,7 +1383,7 @@ MultiBot.raidus.setRaidus = function()
 			local tReward = botLevel .. "." .. MultiBot.IF(botScore < 100, "0", MultiBot.IF(botScore < 10, "00", "")) .. botScore
 
 			pButton.tip = MultiBot.newFrame(pButton, -pButton.size, 160, 28, 256, 512, "TOPRIGHT")
-			pButton.tip.addTexture("Interface\\AddOns\\MultiBot\\Textures\\Raidus_Wanted.blp")
+			pButton.tip.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\Raidus_Wanted.blp")
 			pButton.tip.addModel(botName, 0, 64, 160, 240, 1.0)
 			pButton.tip.addText("1", "|cff555555- WANTED -|h", "TOP", 0, -30, 24)
 			pButton.tip.addText("2", "|cff555555-DEAD OR ALIVE-|h", "TOP", 0, -55, 24)
@@ -1491,7 +1491,7 @@ MultiBot.raidus.setRaidus = function()
 
 	for i = tSlot % RAIDUS_POOL_PAGE_SIZE, RAIDUS_POOL_PAGE_SIZE, 1 do
 		local tFrame = tPool.addFrame("Slot" .. tSlot, 0, tY, 28, 160, 36)
-		tFrame.addTexture("Interface\\AddOns\\MultiBot\\Textures\\grey.blp")
+		tFrame.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\grey.blp")
 		applyRaidusSlotTextureInset(tFrame)
 		tFrame.slot = "Slot" .. tSlot
 		setRaidusSlotRoleBorder(tFrame, nil, 0.22)
@@ -1514,7 +1514,7 @@ MultiBot.raidus.setRaidus = function()
 
 		for j = 1, RAIDUS_GROUP_SLOT_COUNT, 1 do
 			local tFrame = tGroup.addFrame("Slot" .. j, 0, groupY, 28, RAIDUS_GROUP_SLOT_WIDTH, 36)
-			tFrame.addTexture("Interface\\AddOns\\MultiBot\\Textures\\grey.blp")
+			tFrame.addTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Textures\\grey.blp")
 			applyRaidusSlotTextureInset(tFrame)
 			tFrame.slot = "Slot" .. j
 			setRaidusSlotRoleBorder(tFrame, nil, 0.20)

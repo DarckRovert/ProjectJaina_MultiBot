@@ -78,7 +78,7 @@ do
     overlay:SetPoint("TOPLEFT")
 
     local icon = button:CreateTexture(nil, "ARTWORK")
-    icon:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\browse.blp")
+    icon:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\browse.blp")
     icon:SetTexCoord(0.07, 0.93, 0.07, 0.93)
     icon:SetSize(20, 20)
     icon:SetPoint("CENTER", 0, 0)

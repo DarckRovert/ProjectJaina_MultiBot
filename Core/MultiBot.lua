@@ -1499,7 +1499,7 @@ local function UpdateBridgeUnitButton(button, className, level, name)
 
   local texture = "Interface\\Icons\\INV_Misc_QuestionMark"
   if string.lower(classCanon) ~= "unknown" then
-    texture = "Interface\\AddOns\\MultiBot\\Icons\\class_"
+    texture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_"
         .. string.lower(classCanon) .. ".blp"
   end
 
@@ -2777,7 +2777,7 @@ local function UpdateBridgeAltButton(button, entry)
 
   local texture = "Interface\\Icons\\INV_Misc_QuestionMark"
   if string.lower(botClass or "unknown") ~= "unknown" then
-    texture = "Interface\\AddOns\\MultiBot\\Icons\\class_"
+    texture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_"
         .. string.lower(botClass) .. ".blp"
   end
 
@@ -4055,7 +4055,7 @@ function MultiBot.EnsureFavoriteButtons(favorites)
       local className, level = MultiBot.ResolveFavoriteButtonMetadata(name, units)
       local texture = FAVORITE_UNKNOWN_TEXTURE
       if className ~= FAVORITE_UNKNOWN_CLASS then
-        texture = "Interface\\AddOns\\MultiBot\\Icons\\class_"
+        texture = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\class_"
             .. string.lower(className) .. ".blp"
       end
 

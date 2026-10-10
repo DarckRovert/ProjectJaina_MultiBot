@@ -383,7 +383,7 @@ local function makeActionButton(parent, key, iconTexture, tooltipText, yOffset, 
     button.icon:SetTexture(MultiBot.SafeTexturePath(iconTexture))
 
     button.border = button:CreateTexture(nil, "OVERLAY")
-    button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+    button.border:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\border.blp")
     button.border:SetPoint("TOPLEFT", button, "TOPLEFT", -2, 2)
     button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
     button.border:Hide()
@@ -596,7 +596,7 @@ local function makeItemsContainer(parent, scrollChild)
         button.icon:SetAllPoints(button)
 
         button.border = button:CreateTexture(nil, "OVERLAY")
-        button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+        button.border:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\border.blp")
         button.border:SetPoint("TOPLEFT", button, "TOPLEFT", -2, 2)
         button.border:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 2, -2)
 

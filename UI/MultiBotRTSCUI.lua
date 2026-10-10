@@ -9,21 +9,21 @@ local RTSC_SELECTOR_HEIGHT = 28
 local RTSC_STORAGE_ICON = "achievement_bg_winwsg_3-0"
 
 local RTSC_GROUP_BUTTONS = {
-    { tag = "@group1", x = 30, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_group1.blp", tip = "tips.rtsc.group1", hidden = true, disabled = true },
-    { tag = "@group2", x = 60, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_group2.blp", tip = "tips.rtsc.group2", hidden = true, disabled = true },
-    { tag = "@group3", x = 90, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_group3.blp", tip = "tips.rtsc.group3", hidden = true, disabled = true },
-    { tag = "@group4", x = 120, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_group4.blp", tip = "tips.rtsc.group4", hidden = true, disabled = true },
-    { tag = "@group5", x = 150, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_group5.blp", tip = "tips.rtsc.group5", hidden = true, disabled = true },
+    { tag = "@group1", x = 30, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_group1.blp", tip = "tips.rtsc.group1", hidden = true, disabled = true },
+    { tag = "@group2", x = 60, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_group2.blp", tip = "tips.rtsc.group2", hidden = true, disabled = true },
+    { tag = "@group3", x = 90, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_group3.blp", tip = "tips.rtsc.group3", hidden = true, disabled = true },
+    { tag = "@group4", x = 120, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_group4.blp", tip = "tips.rtsc.group4", hidden = true, disabled = true },
+    { tag = "@group5", x = 150, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_group5.blp", tip = "tips.rtsc.group5", hidden = true, disabled = true },
 }
 
 local RTSC_ROLE_BUTTONS = {
-    { tag = "@tank", x = 30, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_tank.blp", tip = "tips.rtsc.tank", disabled = true },
-    { tag = "@dps", x = 60, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_dps.blp", tip = "tips.rtsc.dps", disabled = true },
-    { tag = "@healer", x = 90, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_healer.blp", tip = "tips.rtsc.healer", disabled = true },
-    { tag = "@melee", x = 120, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_melee.blp", tip = "tips.rtsc.melee", disabled = true },
-    { tag = "@ranged", x = 150, icon = "Interface\\AddOns\\MultiBot\\Icons\\rtsc_ranged.blp", tip = "tips.rtsc.ranged", disabled = true },
-    { tag = "@meleedps", x = 180, icon = "Interface\\AddOns\\MultiBot\\Icons\\attack_melee.blp", tip = "tips.rtsc.meleedps", disabled = true },
-    { tag = "@rangeddps", x = 210, icon = "Interface\\AddOns\\MultiBot\\Icons\\attack_range.blp", tip = "tips.rtsc.rangeddps", disabled = true },
+    { tag = "@tank", x = 30, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_tank.blp", tip = "tips.rtsc.tank", disabled = true },
+    { tag = "@dps", x = 60, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_dps.blp", tip = "tips.rtsc.dps", disabled = true },
+    { tag = "@healer", x = 90, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_healer.blp", tip = "tips.rtsc.healer", disabled = true },
+    { tag = "@melee", x = 120, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_melee.blp", tip = "tips.rtsc.melee", disabled = true },
+    { tag = "@ranged", x = 150, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_ranged.blp", tip = "tips.rtsc.ranged", disabled = true },
+    { tag = "@meleedps", x = 180, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\attack_melee.blp", tip = "tips.rtsc.meleedps", disabled = true },
+    { tag = "@rangeddps", x = 210, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\attack_range.blp", tip = "tips.rtsc.rangeddps", disabled = true },
 }
 
 local RTSC_BROWSE_ROLES = { "@dps", "@tank", "@melee", "@healer", "@ranged" }
@@ -171,7 +171,7 @@ local function bindSelectorLogic(selectorFrame)
 end
 
 local function createBrowseButton(selectorFrame)
-    local browseButton = selectorFrame.addButton("Browse", 270, 0, "Interface\\AddOns\\MultiBot\\Icons\\rtsc_browse.blp", MultiBot.L("tips.rtsc.browse"))
+    local browseButton = selectorFrame.addButton("Browse", 270, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc_browse.blp", MultiBot.L("tips.rtsc.browse"))
 
     browseButton.doRight = function(button)
         MultiBot.ActionToGroup("rtsc cancel")
@@ -241,7 +241,7 @@ function MultiBot.InitializeRTSCUI(tMultiBar)
     end
 
     local allButton = selectorFrame
-        .addButton("@all", 240, 0, "Interface\\AddOns\\MultiBot\\Icons\\rtsc.blp", MultiBot.L("tips.rtsc.all"), "SecureActionButtonTemplate")
+        .addButton("@all", 240, 0, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\rtsc.blp", MultiBot.L("tips.rtsc.all"), "SecureActionButtonTemplate")
         .addMacro("type1", "/cast aedm")
 
     allButton.doRight = function(button)

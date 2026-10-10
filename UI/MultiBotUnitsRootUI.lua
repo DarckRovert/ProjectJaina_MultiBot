@@ -21,7 +21,7 @@ local INVITE_BUTTONS = {
     {
         name = "Party+5",
         x = 0,
-        icon = "Interface\\AddOns\\MultiBot\\Icons\\invite_party_5.blp",
+        icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\invite_party_5.blp",
         tip = "tips.units.inviteParty5",
         needs = function(raidCount, partyCount)
             return MultiBot.IF(raidCount > 0, 5 - raidCount, MultiBot.IF(partyCount > 0, 4 - partyCount, 4))
@@ -30,7 +30,7 @@ local INVITE_BUTTONS = {
     {
         name = "Raid+10",
         x = 56,
-        icon = "Interface\\AddOns\\MultiBot\\Icons\\invite_raid_10.blp",
+        icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\invite_raid_10.blp",
         tip = "tips.units.inviteRaid10",
         needs = function(raidCount, partyCount)
             return 10 - MultiBot.IF(raidCount > 0, raidCount, MultiBot.IF(partyCount > 0, partyCount + 1, 1))
@@ -39,7 +39,7 @@ local INVITE_BUTTONS = {
     {
         name = "Raid+25",
         x = 82,
-        icon = "Interface\\AddOns\\MultiBot\\Icons\\invite_raid_25.blp",
+        icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\invite_raid_25.blp",
         tip = "tips.units.inviteRaid25",
         needs = function(raidCount, partyCount)
             return 25 - MultiBot.IF(raidCount > 0, raidCount, MultiBot.IF(partyCount > 0, partyCount + 1, 1))
@@ -48,7 +48,7 @@ local INVITE_BUTTONS = {
     {
         name = "Raid+40",
         x = 108,
-        icon = "Interface\\AddOns\\MultiBot\\Icons\\invite_raid_40.blp",
+        icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\invite_raid_40.blp",
         tip = "tips.units.inviteRaid40",
         needs = function(raidCount, partyCount)
             return 40 - MultiBot.IF(raidCount > 0, raidCount, MultiBot.IF(partyCount > 0, partyCount + 1, 1))
@@ -2576,7 +2576,7 @@ local function createAllBotsCommands(controlFrame)
 end
 
 local function createInviteControls(controlFrame)
-    local inviteButton = controlFrame.addButton("Invite", 0, 120, "Interface\\AddOns\\MultiBot\\Icons\\invite.blp", MultiBot.L("tips.units.invite")).setEnable()
+    local inviteButton = controlFrame.addButton("Invite", 0, 120, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\invite.blp", MultiBot.L("tips.units.invite")).setEnable()
 
     inviteButton.doRight = function()
         if GetNumRaidMembers() > 0 or GetNumPartyMembers() > 0 then
@@ -2621,7 +2621,7 @@ end
 
 -- MB_CANONICAL_PAGINATION_ORDER_A2_V1_BEGIN
 local function createBrowseButton(controlFrame)
-    controlFrame.addButton("Browse", 0, 180, "Interface\\AddOns\\MultiBot\\Icons\\browse.blp", MultiBot.L("tips.units.browse"))
+    controlFrame.addButton("Browse", 0, 180, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\browse.blp", MultiBot.L("tips.units.browse"))
         .doLeft = function()
             local unitsButton = MultiBot.frames.MultiBar.buttons[UNITS_BUTTON_NAME]
             local unitsFrame = unitsButton.parent.frames[UNITS_FRAME_NAME]

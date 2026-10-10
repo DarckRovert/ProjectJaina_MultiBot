@@ -359,7 +359,7 @@ local function createRewardButton(mainFrame)
         "Reward",
         0,
         306,
-        "Interface\\AddOns\\MultiBot\\Icons\\reward.blp",
+        "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\reward.blp",
         MultiBot.L("tips.main.reward")
     ):setDisable()
 
@@ -529,7 +529,7 @@ local function createPullControlIcon(frame, name, x, y, icon, tipKey, onLeft)
     end
 
     button.border = button:CreateTexture(nil, "ARTWORK")
-    button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+    button.border:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\border.blp")
     button.border:SetPoint("CENTER", button, "CENTER", 0, 0)
     button.border:SetWidth(34)
     button.border:SetHeight(34)
@@ -838,7 +838,7 @@ local function addMainCombatStrategyButton(frame, name, x, y, icon, tipKey, scop
 	button.icon:SetAllPoints(button)
 
 	button.border = button:CreateTexture(nil, "ARTWORK")
-	button.border:SetTexture("Interface\\AddOns\\MultiBot\\Icons\\border.blp")
+	button.border:SetTexture("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\border.blp")
 	button.border:SetPoint("CENTER", button, "CENTER", 0, 0)
 	button.border:SetSize(34, 34)
 	button.border:Hide()
@@ -1452,7 +1452,7 @@ function MultiBot.InitializeMainUI(tMultiBar)
     createMainActionButton(mainFrame, {
         name = "Expand",
         y = 272,
-        icon = "Interface\\AddOns\\MultiBot\\Icons\\command_follow.blp",
+        icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\command_follow.blp",
         tip = "tips.main.expand",
         disabled = true,
         doLeft = function(button)

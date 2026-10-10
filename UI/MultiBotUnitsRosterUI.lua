@@ -9,15 +9,15 @@ local ROSTER_MODES = {
 }
 
 local ROSTER_FRAME_NAME = "Roster"
-local ROSTER_ROOT_ICON = "Interface\\AddOns\\MultiBot\\Icons\\roster_players.blp"
+local ROSTER_ROOT_ICON = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\roster_players.blp"
 local ROSTER_DEFAULT_ID = "players"
-local ROSTER_DEFAULT_TEXTURE = "Interface\\AddOns\\MultiBot\\Icons\\roster_players.blp"
+local ROSTER_DEFAULT_TEXTURE = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\roster_players.blp"
 local ROSTER_FRAME_X = -30
 local ROSTER_FRAME_Y = 32
 local ROSTER_STEP_X = -26
 
 local function resolveRosterTexture(definition)
-    return definition.texture or ("Interface\\AddOns\\MultiBot\\Icons\\" .. definition.icon .. ".blp")
+    return definition.texture or ("Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\" .. definition.icon .. ".blp")
 end
 
 local function scheduleDefaultRosterSelection(tControl)

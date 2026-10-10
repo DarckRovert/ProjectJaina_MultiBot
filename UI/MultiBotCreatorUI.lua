@@ -7,16 +7,16 @@ local GENDER_BUTTONS = {
 }
 
 local CLASS_BUTTONS = {
-    { name = "Warrior", y = 0, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_warrior.blp", cmd = "warrior" },
-    { name = "Warlock", y = 30, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_warlock.blp", cmd = "warlock" },
-    { name = "Shaman", y = 60, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_shaman.blp", cmd = "shaman" },
-    { name = "Rogue", y = 90, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_rogue.blp", cmd = "rogue" },
-    { name = "Priest", y = 120, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_priest.blp", cmd = "priest" },
-    { name = "Paladin", y = 150, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_paladin.blp", cmd = "paladin" },
-    { name = "Mage", y = 180, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_mage.blp", cmd = "mage" },
-    { name = "Hunter", y = 210, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_hunter.blp", cmd = "hunter" },
-    { name = "Druid", y = 240, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_druid.blp", cmd = "druid" },
-    { name = "DeathKnight", y = 270, icon = "Interface\\AddOns\\MultiBot\\Icons\\addclass_deathknight.blp", cmd = "dk" },
+    { name = "Warrior", y = 0, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_warrior.blp", cmd = "warrior" },
+    { name = "Warlock", y = 30, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_warlock.blp", cmd = "warlock" },
+    { name = "Shaman", y = 60, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_shaman.blp", cmd = "shaman" },
+    { name = "Rogue", y = 90, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_rogue.blp", cmd = "rogue" },
+    { name = "Priest", y = 120, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_priest.blp", cmd = "priest" },
+    { name = "Paladin", y = 150, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_paladin.blp", cmd = "paladin" },
+    { name = "Mage", y = 180, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_mage.blp", cmd = "mage" },
+    { name = "Hunter", y = 210, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_hunter.blp", cmd = "hunter" },
+    { name = "Druid", y = 240, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_druid.blp", cmd = "druid" },
+    { name = "DeathKnight", y = 270, icon = "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\addclass_deathknight.blp", cmd = "dk" },
 }
 
 local CREATOR_FRAME_NAME = "Creator"
@@ -155,7 +155,7 @@ function MultiBot.InitializeCreatorUI(tLeft)
         addClassButton(creatorFrame, definition)
     end
 
-    creatorFrame.addButton("Inspect", 0, 300, "Interface\\AddOns\\MultiBot\\Icons\\filter_none.blp", MultiBot.L("tips.creator.inspect"))
+    creatorFrame.addButton("Inspect", 0, 300, "Interface\\AddOns\\ProjectJaina_MultiBot\\Icons\\filter_none.blp", MultiBot.L("tips.creator.inspect"))
         .doLeft = function()
             if UnitExists("target") and UnitIsPlayer("target") then
                 InspectUnit("target")
