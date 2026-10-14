@@ -1,7 +1,7 @@
 # 🤖 Project Jaina — MultiBot (Control Táctico de Playerbots)
 
 [![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
-[![Core Compatibility](https://img.shields.io/badge/Core-AzerothCore%20%7C%20mod--playerbots-red.svg)](https://github.com/azerothcore/mod-playerbots)
+[![Core Compatibility](https://img.shields.io/badge/Core-JainaCore%20%7C%20mod--playerbots-red.svg)](https://github.com/jainacore/mod-playerbots)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__MultiBot-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_MultiBot)
 [![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
@@ -124,7 +124,7 @@ MultiBot responde a los siguientes comandos de barra en el cliente:
    Clona o extrae el contenido en tu directorio de addons:  
    `World of Warcraft\Interface\AddOns\MultiBot\`
 2. **Requisitos de Servidor:**  
-   - Servidor **AzerothCore** con el módulo [mod-playerbots](https://github.com/azerothcore/mod-playerbots) habilitado.
+   - Servidor **JainaCore** con el módulo [mod-playerbots](https://github.com/jainacore/mod-playerbots) habilitado.
    - Opcional: Módulo de servidor [mod-multibot-bridge](https://github.com/Wishmaster117/mod-multibot-bridge) para despacho silencioso sin mensajes de chat.
 3. Para una guía paso a paso completa, consulta [INSTALL.md](INSTALL.md).
 
@@ -146,6 +146,6 @@ Para más detalles técnicos, consulta [ECOSYSTEM_REGISTRY.md](ECOSYSTEM_REGISTR
 
 - **Autor Original de MultiBot:** `Nico Löbbert`
 - **Desarrollador & Maintainer de MultiBot Chatless:** `Wishmaster117 aka TheWarlock` (Alex Plex)
-- **Contribuidores Comunitarios:** `Macx-Lio`, `ike3` y la comunidad de AzerothCore.
+- **Contribuidores Comunitarios:** `Macx-Lio`, `ike3` y la comunidad de JainaCore.
 - **Adaptación Oficial y Estandarización:** Project Jaina Dev Team (`DarckRovert` / `Elnazzareno`).
 - **Licencia:** Distribuido bajo la **GNU General Public License v3 (GPL-3.0)**. Consulta [LICENSE](LICENSE) y [NOTICE.md](NOTICE.md) para los avisos legales completos.

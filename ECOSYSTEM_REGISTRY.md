@@ -17,7 +17,7 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **Projec
 | **Repositorio GitHub** | [ProjectJaina_MultiBot](https://github.com/DarckRovert/ProjectJaina_MultiBot) |
 | **Repositorio Upstream** | [Wishmaster117/MultiBot-Chatless](https://github.com/Wishmaster117/MultiBot-Chatless) |
 | **Entorno de Juego** | World of Warcraft 3.3.5a (Build 12340) / WotLK |
-| **Compatibilidad del Servidor** | AzerothCore con módulo `mod-playerbots` (y `mod-multibot-bridge` opcional) |
+| **Compatibilidad del Servidor** | JainaCore con módulo `mod-playerbots` (y `mod-multibot-bridge` opcional) |
 | **Persistencia** | `MultiBotSave`, `MultiBotDB`, `MultiBotSaved` (por PJ) / `MultiBotGlobalSave` (por cuenta) |
 
 ---
@@ -25,7 +25,7 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **Projec
 ## 2. Garantías de Rendimiento y Arquitectura
 
 - **Arquitectura Bridge-First:** Prioriza el intercambio de datos mediante mensajes de addon estructurados (`SendAddonMessage`) procesados por el backend en C++ (`mod-multibot-bridge`), eliminando el spam masivo de susurros y comandos de chat automáticos.
-- **Modo Híbrido Resiliente:** Si el puente en C++ no está instalado o no responde, el addon conmuta automáticamente a despacho mediante comandos de susurro directos al bot, garantizando operatividad 100% en cualquier servidor AzerothCore estándar.
+- **Modo Híbrido Resiliente:** Si el puente en C++ no está instalado o no responde, el addon conmuta automáticamente a despacho mediante comandos de susurro directos al bot, garantizando operatividad 100% en cualquier servidor JainaCore estándar.
 - **Rendimiento de Cuadro:** Menos de 0.05 ms por frame en reposo; actualizaciones escalonadas asíncronas (`MultiBotAsync.lua`) que evitan congelamientos de la interfaz gráfica al consultar grupos o raids con hasta 25 bots.
 - **Inmunidad a Taint de Combate:** Toda la barra de acciones flotante y menús de control operan en espacio de usuario sin intervenir en botones de acción seguros de Blizzard (`SecureActionButtonTemplate`) de forma que bloquee las macros del jugador.
 

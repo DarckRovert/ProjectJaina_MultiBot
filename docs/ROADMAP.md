@@ -27,7 +27,7 @@ Remote: origin/main = même HEAD
 ### Bridge
 
 ```text
-Repo:   L:\AC_PB\azerothcore-wotlk\modules\mod-multibot-bridge
+Repo:   L:\AC_PB\jainacore-wotlk\modules\mod-multibot-bridge
 Branch: main
 HEAD:   24cef0badfde0c06fc0b917b7510f8f15220a775
 Remote: origin/main = même HEAD
@@ -39,7 +39,7 @@ Remote: origin/main = même HEAD
 ### Playerbots
 
 ```text
-Repo: L:\AC_PB\azerothcore-wotlk\modules\mod-playerbots
+Repo: L:\AC_PB\jainacore-wotlk\modules\mod-playerbots
 HEAD: 2f7d9f774987d0157c6a0d0cc08c40bec3db3945
 Mode: STRICT READ ONLY
 ```

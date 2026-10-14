@@ -21,7 +21,7 @@ La seguridad de **ProjectJaina_MultiBot** se fundamenta en el aislamiento estric
    - La API `SendAddonMessage` está restringida a un máximo absoluto de **255 bytes por paquete**. Todo payload emitido se fragmenta o comprime en estructuras compactas.
    - Prefijo auditado: `WP_BOT`.
 3. **Validación Autoritativa en Servidor:**
-   - El cliente de interfaz es tratado como un medio de presentación potencialmente no confiable. Ninguna transacción de ítems, progreso, monedas o recompensas es decidida por el cliente; el servidor Eluna / C++ (`mod-playerbots en AzerothCore`) valida y aplica los cambios en MySQL.
+   - El cliente de interfaz es tratado como un medio de presentación potencialmente no confiable. Ninguna transacción de ítems, progreso, monedas o recompensas es decidida por el cliente; el servidor Eluna / C++ (`mod-playerbots en JainaCore`) valida y aplica los cambios en MySQL.
 4. **Higiene de Strings y Sanitización:**
    - Toda entrada de usuario proveniente de cajas de texto (`EditBox`) o comandos slash (`/multibot, /mb`) es limpiada contra inyecciones de secuencias de escape y caracteres nulos.
 

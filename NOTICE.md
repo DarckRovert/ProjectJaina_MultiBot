@@ -14,7 +14,7 @@ Contiene Panel de control y gestión táctica de compañeros Playerbots (mod-pla
 
 ## 2. Arquitectura y Protocolo Autoritativo
 * **Prefijo de Red:** `WP_BOT`
-* **Integración Servidor:** `mod-playerbots en AzerothCore`
+* **Integración Servidor:** `mod-playerbots en JainaCore`
 * **Variables Guardadas:** `MultiBotDB`
 * **Comandos Slash:** `/multibot, /mb`
 

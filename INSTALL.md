@@ -1,7 +1,7 @@
 # 📦 Guía de Instalación y Despliegue — MultiBot
 
 [![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
-[![Core Compatibility](https://img.shields.io/badge/Core-AzerothCore%20%7C%20mod--playerbots-red.svg)](https://github.com/azerothcore/mod-playerbots)
+[![Core Compatibility](https://img.shields.io/badge/Core-JainaCore%20%7C%20mod--playerbots-red.svg)](https://github.com/jainacore/mod-playerbots)
 [![Repositorio](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__MultiBot-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_MultiBot)
 [![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 
@@ -14,7 +14,7 @@
 - **Idioma Soportado:** Español (`esES`), Inglés (`enUS`, `enGB`), Francés (`frFR`), Alemán (`deDE`), Ruso (`ruRU`), Chino (`zhCN`), Coreano (`koKR`).
 
 ### 2. Servidor Emulador
-- **Emulador:** AzerothCore rev. WotLK 3.3.5a.
+- **Emulador:** JainaCore rev. WotLK 3.3.5a.
 - **Módulos del Servidor:**
   - `mod-playerbots`: **Obligatorio** para la generación y control de bots autónomos.
   - `mod-multibot-bridge`: **Recomendado** para la comunicación sin spam en chat (*Bridge-First*). Si no está instalado, MultiBot funcionará en modo de compatibilidad clásica vía susurros.
@@ -80,4 +80,4 @@
 |---|---|---|
 | El addon no aparece en la lista de Accesorios | Carpeta anidada doblemente (ej: `MultiBot/MultiBot/...`) | Extrae los archivos para que `MultiBot.toc` quede directamente en `Interface/AddOns/MultiBot/MultiBot.toc`. |
 | Los bots no responden a las órdenes de la interfaz | `mod-playerbots` no está activo en el servidor | Verifica que el módulo de playerbots esté compilado y activo en tu `worldserver`. |
-| Mensajes repetitivos de chat al dar órdenes | Falta `mod-multibot-bridge` en el servidor | Instala `mod-multibot-bridge` en tu AzerothCore para activar la comunicación silenciosa nativa. |
+| Mensajes repetitivos de chat al dar órdenes | Falta `mod-multibot-bridge` en el servidor | Instala `mod-multibot-bridge` en tu JainaCore para activar la comunicación silenciosa nativa. |
