@@ -4,7 +4,7 @@
 [![Core Compatibility](https://img.shields.io/badge/Core-JainaCore%20%7C%20mod--playerbots-red.svg)](https://github.com/jainacore/mod-playerbots)
 [![License](https://img.shields.io/badge/License-GPL--3.0-green.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__MultiBot-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_MultiBot)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-Project%20Jaina%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 
 Suite de interfaz gráfica integral y control de escuadrón de **Playerbots** (`mod-playerbots`) para **World of Warcraft: Wrath of the Lich King 3.3.5a (Build 12340)**, adaptada e integrada oficialmente en el ecosistema de **Project Jaina — Project Jaina** como el **Módulo Oficial #21**.
 

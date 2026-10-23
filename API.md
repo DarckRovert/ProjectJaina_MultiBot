@@ -2,7 +2,7 @@
 
 [![WoW Version](https://img.shields.io/badge/WoW-3.3.5a%20(12340)-blue.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 [![Repositorio](https://img.shields.io/badge/GitHub-DarckRovert%2FProjectJaina__MultiBot-black?logo=github)](https://github.com/DarckRovert/ProjectJaina_MultiBot)
-[![Ecosistema](https://img.shields.io/badge/Ecosistema-WoW%20Per%C3%BA%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
+[![Ecosistema](https://img.shields.io/badge/Ecosistema-Project%20Jaina%20(M%C3%B3dulo%20%2321)-gold.svg)](https://darckrovert.github.io/ProjectJaina_Web/)
 
 ---
 

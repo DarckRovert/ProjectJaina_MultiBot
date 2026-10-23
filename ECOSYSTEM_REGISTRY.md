@@ -1,6 +1,6 @@
 # 🌐 Registro de Ecosistema — ProjectJaina_MultiBot
 
-Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina - Project Jaina**.
+Ficha técnica oficial de registro en la infraestructura multi-addon de **Project Jaina**.
 
 ---
 
@@ -10,7 +10,7 @@ Ficha técnica oficial de registro en la infraestructura multi-addon de **Projec
 |---|---|
 | **Nombre Técnico** | `ProjectJaina_MultiBot` |
 | **Carpeta Local** | `MultiBot` |
-| **Versión Actual** | `4.0.0-WP` |
+| **Versión Actual** | `4.0.0` |
 | **Clasificación** | Control de Bots / Inteligencia Artificial / Escuadrón / Gestión de Grupo |
 | **Módulo Oficial** | Módulo Oficial #21 |
 | **Licencia Formal** | GNU General Public License v3 (GPL-3.0) |
