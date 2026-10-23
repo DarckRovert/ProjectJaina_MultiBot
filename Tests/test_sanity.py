@@ -16,7 +16,7 @@ def test_multibot_sanity():
         "README.md", "CHANGELOG.md", "LICENSE", "NOTICE.md",
         "API.md", "AGENTS.md", "INSTALL.md", "SECURITY.md",
         "ECOSYSTEM_REGISTRY.md", ".gitignore", ".gitattributes",
-        "MultiBot.toc"
+        "ProjectJaina_MultiBot.toc"
     ]
     for filename in required_files:
         path = os.path.join(base_dir, filename)
@@ -24,7 +24,7 @@ def test_multibot_sanity():
     print("[PASS] All required repository documentation files exist.")
 
     # 2. Verify TOC
-    toc_path = os.path.join(base_dir, "MultiBot.toc")
+    toc_path = os.path.join(base_dir, "ProjectJaina_MultiBot.toc")
     with open(toc_path, "r", encoding="utf-8") as f:
         toc_content = f.read()
 
