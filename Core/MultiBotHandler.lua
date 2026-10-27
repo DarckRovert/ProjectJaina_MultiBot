@@ -1358,6 +1358,15 @@ function MultiBot.HandleGameObjectWhisper(rawMsg, author)
 	return true
 end
 
+local function RefreshBlizzardPartyFrames()
+	for i = 1, 4 do
+		local frame = _G["PartyMemberFrame" .. i]
+		if frame and type(PartyMemberFrame_UpdateMember) == "function" then
+			pcall(PartyMemberFrame_UpdateMember, frame)
+		end
+	end
+end
+
 local function refreshGroupRosterIndexes()
 	local bridge = MultiBot and MultiBot.bridge
 	if bridge and bridge.connected == true
@@ -1365,6 +1374,7 @@ local function refreshGroupRosterIndexes()
 		and MultiBot.SyncBridgeRosterToPlayers then
 		MultiBot.SyncBridgeRosterToPlayers(bridge.roster)
 	end
+	RefreshBlizzardPartyFrames()
 end
 
 function MultiBot.HandleMultiBotEvent(event, ...)

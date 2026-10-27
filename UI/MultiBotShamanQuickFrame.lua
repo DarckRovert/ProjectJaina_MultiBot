@@ -442,13 +442,13 @@ function ShamanQuick:CollectShamanBots()
     local names = {}
 
     local function considerUnit(unit)
-        if not UnitExists(unit) then
+        if not UnitExists(unit) or UnitIsUnit(unit, "player") then
             return
         end
 
         local name = GetUnitName(unit, true)
         local _, classToken = UnitClass(unit)
-        if classToken == "SHAMAN" and name and (not MultiBot.IsBot or MultiBot.IsBot(name)) then
+        if classToken == "SHAMAN" and name and MultiBot.IsBot and MultiBot.IsBot(name) then
             table.insert(names, name)
         end
     end
@@ -459,7 +459,6 @@ function ShamanQuick:CollectShamanBots()
             considerUnit("raid" .. index)
         end
     else
-        considerUnit("player")
         local count = GetNumSubgroupMembers and GetNumSubgroupMembers() or 0
         for index = 1, count do
             considerUnit("party" .. index)

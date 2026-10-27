@@ -517,24 +517,26 @@ end
 function HunterQuick:CollectHunterBots()
     local names = {}
 
+    local function considerUnit(unit)
+        if not UnitExists(unit) or UnitIsUnit(unit, "player") then
+            return
+        end
+
+        local name = UnitName(unit)
+        local _, classToken = UnitClass(unit)
+        if name and classToken == "HUNTER" and MultiBot.IsBot and MultiBot.IsBot(name) then
+            table.insert(names, name)
+        end
+    end
+
     if GetNumRaidMembers and GetNumRaidMembers() > 0 then
         for index = 1, GetNumRaidMembers() do
-            local unit = "raid" .. index
-            local name = UnitName(unit)
-            local _, classToken = UnitClass(unit)
-            if name and classToken == "HUNTER" and (not MultiBot.IsBot or MultiBot.IsBot(name)) then
-                table.insert(names, name)
-            end
+            considerUnit("raid" .. index)
         end
     else
         local partyCount = GetNumPartyMembers and GetNumPartyMembers() or 0
         for index = 1, partyCount do
-            local unit = "party" .. index
-            local name = UnitName(unit)
-            local _, classToken = UnitClass(unit)
-            if name and classToken == "HUNTER" and (not MultiBot.IsBot or MultiBot.IsBot(name)) then
-                table.insert(names, name)
-            end
+            considerUnit("party" .. index)
         end
     end
 

@@ -2,25 +2,29 @@
 
 ## Bugs / corrections à vérifier
 
-* Il semble y'avoir une regression, quand je me déconnecte et reconnecte l'UI du groupe nblizzard n'est pas refresh les bots restent en inconne je suis obligé de faire un reload
-* Quand je fais addclass bots on m'envoi que des bots level 1 même si je suis level 80
 * Nouveau outfit par bridge : vérifier le cas de deux armes à deux mains, le bot ne les équipe pas.
 * Inventaire bridge : vérifier qu'il n'y a plus de limite visuelle ou logique à 16 emplacements.
 * Recentrer les icônes des glyphes.
 * Glyphes : analyser pourquoi l'affichage est lent.
 * Quick Shaman / Quick Hunter : faire en sorte que la croix de fermeture reste à la même place quand on ferme la frame.
-* Quick bars : ne pas faire apparaître les quick bars pour les joueurs humains.
 * Raidus : rafraîchir correctement à l'ouverture et à la fermeture.
 * Raidus : ajouter un bouton pour enlever les bots inconnus et les supprimer aussi des SavedVariables.
 * Quêtes : dans la liste des quêtes, corriger les cas où l'ID de quête apparaît à la place du titre. quand on rouvre c'est ok
 * Talents / glyphes : revoir `UI/MultiBotTalent`, car il y a eu des modifications dans le fichier `.conf` de MultiBot.
-* J'ai l'impression que le disperse ne fait rien
 * Refaire uns passe pour que toutes les frames respectent le strata de la config.
 * Retravailler la frame pvp stats qu'elle ressemble aux autres, et ajuster l'alignement du texte
 * Faire une UI pour enchanter les objets à moins qu'on arrive à faire le bot caster le spell sur la fenêtre de trade.
 * Refaire le layout de la frame pvp stats pour harmoniser avec les autres frames
 * voire si on peux ajouter l'avancement de la quête d'un bot
 
+
+## Bugs récemment résolus (Audit & Debug L9)
+
+* [x] **Quick bars (HunterQuick / ShamanQuick)** : Corrigé dans `Core/MultiBotEngine.lua`, `UI/MultiBotHunterQuickFrame.lua` et `UI/MultiBotShamanQuickFrame.lua`. Les joueurs humains et le joueur local sont strictement exclus via `MultiBot.IsBot(unit)`.
+* [x] **Addclass level scaling** : Corrigé dans `00c_JainaBots_Core.lua`. Les bots invoqués via `addclass` synchronisent automatiquement leur niveau sur le chef de groupe humain et exécutent l'auto-équipement/talents (`bot init=auto`).
+* [x] **Reconnexion & Party frames Blizzard ("Inconnu")** : Corrigé dans `92_BotParty_StayOnline_Guard.lua` (téléportation immédiate aux coordonnées du joueur pour synchronisation de la grille de visibilité et poussée `SMSG_UPDATE_OBJECT`) et `Core/MultiBotHandler.lua` (`RefreshBlizzardPartyFrames` déclenché sur `GROUP_ROSTER_UPDATE`, `PARTY_MEMBERS_CHANGED` et `PLAYER_ENTERING_WORLD`).
+* [x] **Progression Gate (Era Vanilla / Level 60)** : Corrigé dans `85_ContentProgressionGate.lua`. Dé-équipement forcé des objets/sorts illégaux via `rndbot refresh` lors de la limitation au cap, et téléportation de sécurité immédiate (Capitale de faction) si le bot se connecte sur une carte restreinte.
+* [x] **Disperse & Commandes Bridge RUN (Formation, RTI, Position)** : Corrigé dans `97_MultiBot_Bridge.lua`. Remplacement de l'appel erroné `HandleRemoteCommand` (qui n'était qu'une inspection d'état) par `botAI:HandleCommand(7, cmdToSend, player)` avec fallback whisper, et correction du double-préfixe / routage de `FORMATION`, `RTI` et `POSITION` (`disperse set <yards>`).
 
 ## Informations bot
 * Dans les frames métier ajout d'un bouton pour faire le bot acheter les composants manquants pour crafter l'item.

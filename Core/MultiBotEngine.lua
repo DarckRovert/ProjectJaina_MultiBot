@@ -178,6 +178,41 @@ MultiBot.isRoster = function(pRoster, pName)
 	return false
 end
 
+-- Discriminador canonico de entidad Bot vs Jugador Humano
+MultiBot.IsBot = function(pName)
+    if not pName or pName == "" then return false end
+    if type(UnitName) == "function" and pName == UnitName("player") then return false end
+
+    -- 1. Verificar si esta registrado en los rosters nativos de MultiBot
+    local rosters = { "actives", "players", "members", "friends", "favorites" }
+    if MultiBot.isRoster and MultiBot.index then
+        for index = 1, #rosters do
+            local rosterName = rosters[index]
+            local list = MultiBot.index[rosterName]
+            if list and MultiBot.isRoster(rosterName, pName) then
+                return true
+            end
+        end
+    end
+
+    -- 2. Verificar en el almacen de datos del Bridge de bots
+    if MultiBot.Store and type(MultiBot.Store.bots) == "table" and MultiBot.Store.bots[pName] then
+        return true
+    end
+
+    -- 3. Verificar en los botones activos de la barra de Units
+    local units = MultiBot.frames and MultiBot.frames["MultiBar"] and MultiBot.frames["MultiBar"].frames and MultiBot.frames["MultiBar"].frames["Units"]
+    local buttons = units and units.buttons
+    if type(buttons) == "table" then
+        if buttons[pName] or buttons[string.lower(pName)] then
+            return true
+        end
+    end
+
+    return false
+end
+MultiBot.isBot = MultiBot.IsBot
+
 MultiBot.isMember = function(pName)
 	if(GetNumRaidMembers() > 5) then
 		for i = 1, GetNumRaidMembers() do
