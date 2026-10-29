@@ -1,4 +1,5 @@
 ## Interface: 30300
+## Version: 4.0.0-WP
 ## Title: |cFFFFD700Project Jaina|r - |cFF00FFCCMultiBot|r |cFF888888(Control Playerbots)|r
 ## Notes: Interfaz gráfica integral para control, estrategias, formación, inspección y gestión de bots (mod-playerbots) en World of Warcraft 3.3.5a (Project Jaina).
 ## Author: Nico Löbbert, Wishmaster117 (Adaptación oficial Project Jaina Dev Team)
