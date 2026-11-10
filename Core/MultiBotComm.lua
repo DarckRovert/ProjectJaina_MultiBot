@@ -5288,6 +5288,7 @@ state.selfActionCapable = false
   end
   state.strategyMutationCommands = {}
 
+  state.rosterBatch = nil
   state.stateRequests = {}
   state.stateActive = {}
   state.selfStrategyStateToken = nil
@@ -7926,7 +7927,43 @@ function Comm.HandleAddonMessage(prefix, message, distribution, sender)
   if opcode == "ROSTER" then
     state.connected = true
     state.lastError = nil
+    state.rosterBatch = nil
     Comm.ApplyRosterPayload(payload)
+    return true
+  end
+
+  if opcode == "ROSTER_BEGIN" then
+    state.connected = true
+    state.lastError = nil
+    state.rosterBatch = {}
+    return true
+  end
+
+  if opcode == "ROSTER_CHUNK" then
+    state.connected = true
+    state.lastError = nil
+    state.rosterBatch = type(state.rosterBatch) == "table" and state.rosterBatch or {}
+    if type(payload) == "string" and payload ~= "" then
+      for entry in string.gmatch(payload, "([^;]+)") do
+        state.rosterBatch[#state.rosterBatch + 1] = parseRosterEntry(entry)
+      end
+    end
+    return true
+  end
+
+  if opcode == "ROSTER_END" then
+    state.connected = true
+    state.lastError = nil
+    local assembled = type(state.rosterBatch) == "table" and state.rosterBatch or {}
+    state.rosterBatch = nil
+    state.roster = assembled
+    if MultiBot.SyncBridgeRosterToPlayers then
+      MultiBot.SyncBridgeRosterToPlayers(assembled)
+    end
+    if state.connected and Comm.RequestBotDetails then
+      Comm.RequestBotDetails()
+    end
+    debugPrint("ADDON:RX", "ROSTER_END", tostring(#assembled))
     return true
   end
 

@@ -4,6 +4,13 @@ Todos los cambios notables de este proyecto están documentados en este archivo 
 
 ---
 
+## [4.0.1-WP] — 2026-11-10
+### Reensamblaje de Roster por Chunks y Preservación de Estrategias (Hito #341 / Bug #3)
+- **Streaming de Roster Multi-Chunk (`Core/MultiBotComm.lua`):** Soporte nativo para opcodes `ROSTER_BEGIN`, `ROSTER_CHUNK` y `ROSTER_END` acumulados en `state.rosterBatch`, permitiendo transmitir escuadrones completos sin pérdida por el límite de 255 bytes de `CHAT_MSG_ADDON`.
+- **Integridad de Codificación URL en Bridge (`97_MultiBot_Bridge.lua`):** Preservación estricta del carácter `'+'` en `UrlDecode` para no destruir prefijos de adición de estrategias (`+dps`, `nc +loot`).
+
+---
+
 ## [4.0.0-WP] — 2026-10-27
 ### Integración Nativa MultiBot Bridge v4.0, Protocolo C++ Sin Chat Spam & Resiliencia Táctica
 - **Protocolo de Red MultiBot Bridge v4.0 (`97_MultiBot_Bridge.lua`):**

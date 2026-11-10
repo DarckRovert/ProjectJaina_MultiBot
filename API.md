@@ -37,8 +37,9 @@ Instancia central de la aplicación y punto de enlace de eventos de ciclo de vid
 
 ### 2. `MultiBotComm` (Capa de Red y Transporte)
 Gestiona la transmisión y recepción de tramas hacia el servidor.
-- **Prefijos Registrados:** `MB_REQ` (solicitud) y `MB_RES` (respuesta estructurada).
-- **Control de Modo:** Detecta en el handshake si `mod-multibot-bridge` está disponible.
+- **Prefijos Registrados:** `MBOT` / `MB_REQ` (solicitud) y `MB_RES` (respuesta estructurada).
+- **Streaming de Roster Multi-Parte:** Opcodes `ROSTER_BEGIN`, `ROSTER_CHUNK` y `ROSTER_END` ensamblados en `state.rosterBatch` bajo margen seguro `MAX_ADDON_BYTES = 220` bytes.
+- **Control de Modo:** Detecta en el handshake si el bridge Eluna/C++ está disponible y preserva el carácter `'+'` literal en argumentos URL-encoded de estrategias.
 - **Fallback Automático:** Si el bridge no responde en el arranque, redirige las instrucciones como cadenas de texto dirigidas al bot objetivo mediante `SendChatMessage(msg, "WHISPER", nil, botName)`.
 
 ### 3. `MultiBotStore` (Almacén de Estado y Memoria)
