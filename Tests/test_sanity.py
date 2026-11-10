@@ -29,7 +29,7 @@ def test_multibot_sanity():
         toc_content = f.read()
 
     assert "30300" in toc_content, "TOC invalid interface version"
-    assert "4.0.0-WP" in toc_content, "TOC version mismatch (expected 4.0.0-WP)"
+    assert "4.0.1-WP" in toc_content, "TOC version mismatch (expected 4.0.1-WP)"
     assert "X-Ecosystem-Module: #21" in toc_content, "TOC missing module #21 tag"
     assert "MultiBotSave" in toc_content, "TOC missing MultiBotSave"
     assert "MultiBotGlobalSave" in toc_content, "TOC missing MultiBotGlobalSave"
