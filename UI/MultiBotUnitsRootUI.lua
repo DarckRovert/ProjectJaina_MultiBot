@@ -1894,7 +1894,9 @@ local function addRosterMemberButton(member, socialRoster)
 
             -- Preserve the pre-existing fallback only when structured
             -- lifecycle capabilities are unavailable.
-            SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
+            if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(button.name) then
+                SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
+            end
             if MultiBot.SetBridgeBotOnlineState and button.bridge ~= nil then
                 MultiBot.SetBridgeBotOnlineState(button, false)
             else
@@ -1928,7 +1930,9 @@ local function addRosterMemberButton(member, socialRoster)
             return
         end
         button._mbSocialForceCollapsed = true
-        SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
+        if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(button.name) then
+            SendChatMessage(".playerbots bot remove " .. button.name, "SAY")
+        end
         if button.parent.frames[button.name] ~= nil then
             button.parent.frames[button.name]:Hide()
         end
@@ -1962,9 +1966,11 @@ local function addRosterMemberButton(member, socialRoster)
                 return
             end
 
-            SendChatMessage(".playerbots bot add " .. button.name, "SAY")
-            if button.setEnable then
-                button.setEnable()
+            if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(button.name) then
+                SendChatMessage(".playerbots bot add " .. button.name, "SAY")
+                if button.setEnable then
+                    button.setEnable()
+                end
             end
             return
         end
@@ -2004,8 +2010,10 @@ local function addRosterMemberButton(member, socialRoster)
             return
         end
 
-        SendChatMessage(".playerbots bot add " .. button.name, "SAY")
-        button.setEnable()
+        if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(button.name) then
+            SendChatMessage(".playerbots bot add " .. button.name, "SAY")
+            button.setEnable()
+        end
     end
 end
 

@@ -90,7 +90,7 @@ local function ReconnectExistingGroupBots(reason)
 	if GetNumRaidMembers() > 0 then
 		for i = 1, GetNumRaidMembers() do
 			local raidName = UnitName("raid" .. i)
-			if raidName and raidName ~= "" and raidName ~= playerName and raidName:lower() ~= "entidad" and raidName:lower() ~= "unknown" and not raidName:lower():find("^desconocid") then
+			if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(raidName) then
 				SendChatMessage(".playerbots bot add " .. raidName, "SAY")
 				sent = sent + 1
 			end
@@ -98,7 +98,7 @@ local function ReconnectExistingGroupBots(reason)
 	elseif GetNumPartyMembers() > 0 then
 		for i = 1, GetNumPartyMembers() do
 			local partyName = UnitName("party" .. i)
-			if partyName and partyName ~= "" and partyName ~= playerName and partyName:lower() ~= "entidad" and partyName:lower() ~= "unknown" and not partyName:lower():find("^desconocid") then
+			if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(partyName) then
 				SendChatMessage(".playerbots bot add " .. partyName, "SAY")
 				sent = sent + 1
 			end
@@ -1750,11 +1750,16 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 			end
 
 			-- REFRESH:RAID --
+			if not LegacyChatFallbackEnabled() then
+				return
+			end
 
 			if(GetNumRaidMembers() > 4) then
 				for i = 1, GetNumRaidMembers() do
 					local raidName = UnitName("raid" .. i)
-					SendChatMessage(".playerbots bot add " .. raidName, "SAY")
+					if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(raidName) then
+						SendChatMessage(".playerbots bot add " .. raidName, "SAY")
+					end
 				end
 
 				return
@@ -1765,7 +1770,9 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 			if(GetNumPartyMembers() > 0) then
 				for i = 1, GetNumPartyMembers() do
 					local partyName = UnitName("party" .. i)
-					SendChatMessage(".playerbots bot add " .. partyName, "SAY")
+					if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(partyName) then
+						SendChatMessage(".playerbots bot add " .. partyName, "SAY")
+					end
 				end
 
 				return

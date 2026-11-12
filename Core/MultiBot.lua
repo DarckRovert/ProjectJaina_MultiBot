@@ -48,6 +48,30 @@ local function normalizeTextToken(value)
   return cleaned
 end
 
+function MultiBot.IsValidBotEntityName(name)
+  if not name or type(name) ~= "string" then
+    return false
+  end
+  local trimmed = name:gsub("^%s+", ""):gsub("%s+$", "")
+  if trimmed == "" then
+    return false
+  end
+  local lower = string.lower(trimmed)
+  if lower == "entidad" or lower == "unknown" or lower == "nil" then
+    return false
+  end
+  if string.find(lower, "^desconocid") then
+    return false
+  end
+  if type(UnitName) == "function" then
+    local pName = UnitName("player")
+    if pName and trimmed == pName then
+      return false
+    end
+  end
+  return true
+end
+
 local function normalizeAlias(alias)
   local cleaned = normalizeTextToken(alias)
   if not cleaned then return nil end
@@ -2506,7 +2530,9 @@ function MultiBot.BindUnitToggleHandlers(button, options)
       return
     end
 
-    SendChatMessage(".playerbots bot remove " .. unitButton.name, "SAY")
+    if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(unitButton.name) then
+      SendChatMessage(".playerbots bot remove " .. unitButton.name, "SAY")
+    end
     if MultiBot.SetBridgeBotOnlineState and unitButton.bridge ~= nil then
       MultiBot.SetBridgeBotOnlineState(unitButton, false)
     else
@@ -2562,13 +2588,15 @@ function MultiBot.BindUnitToggleHandlers(button, options)
       return
     end
 
-    SendChatMessage(".playerbots bot add " .. unitButton.name, "SAY")
-    unitButton.setEnable()
+    if MultiBot.IsValidBotEntityName and MultiBot.IsValidBotEntityName(unitButton.name) then
+      SendChatMessage(".playerbots bot add " .. unitButton.name, "SAY")
+      unitButton.setEnable()
 
-    if (unitButton._mbFavoritePlaceholder
-        or (MultiBot.IsFavorite and MultiBot.IsFavorite(unitButton.name)))
-        and MultiBot.BeginFavoriteRosterRefresh then
-      MultiBot.BeginFavoriteRosterRefresh(unitButton.name)
+      if (unitButton._mbFavoritePlaceholder
+          or (MultiBot.IsFavorite and MultiBot.IsFavorite(unitButton.name)))
+          and MultiBot.BeginFavoriteRosterRefresh then
+        MultiBot.BeginFavoriteRosterRefresh(unitButton.name)
+      end
     end
   end
 
