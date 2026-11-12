@@ -90,7 +90,7 @@ local function ReconnectExistingGroupBots(reason)
 	if GetNumRaidMembers() > 0 then
 		for i = 1, GetNumRaidMembers() do
 			local raidName = UnitName("raid" .. i)
-			if raidName and raidName ~= "" and raidName ~= playerName then
+			if raidName and raidName ~= "" and raidName ~= playerName and raidName:lower() ~= "entidad" and raidName:lower() ~= "unknown" and not raidName:lower():find("^desconocid") then
 				SendChatMessage(".playerbots bot add " .. raidName, "SAY")
 				sent = sent + 1
 			end
@@ -98,7 +98,7 @@ local function ReconnectExistingGroupBots(reason)
 	elseif GetNumPartyMembers() > 0 then
 		for i = 1, GetNumPartyMembers() do
 			local partyName = UnitName("party" .. i)
-			if partyName and partyName ~= "" and partyName ~= playerName then
+			if partyName and partyName ~= "" and partyName ~= playerName and partyName:lower() ~= "entidad" and partyName:lower() ~= "unknown" and not partyName:lower():find("^desconocid") then
 				SendChatMessage(".playerbots bot add " .. partyName, "SAY")
 				sent = sent + 1
 			end
