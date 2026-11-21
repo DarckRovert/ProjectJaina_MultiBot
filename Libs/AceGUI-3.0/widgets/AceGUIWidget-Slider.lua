@@ -98,7 +98,8 @@ local function EditBox_OnEnterPressed(frame)
 	local value = frame:GetText()
 	if self.ispercent then
 		value = value:gsub('%%', '')
-		value = tonumber(value) / 100
+		local num = tonumber(value)
+		value = num and (num / 100) or nil
 	else
 		value = tonumber(value)
 	end
@@ -107,7 +108,10 @@ local function EditBox_OnEnterPressed(frame)
 		PlaySound("igMainMenuOptionCheckBoxOn")
 		self.slider:SetValue(value)
 		self:Fire("OnMouseUp", value)
+	else
+		UpdateText(self)
 	end
+	frame:ClearFocus()
 end
 
 local function EditBox_OnEnter(frame)

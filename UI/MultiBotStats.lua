@@ -147,17 +147,18 @@ MultiBot.addStats = function(pFrame, pIndex, pX, pY, pSize, pWidth, pHeight)
 		local statsFrame = MultiBot.stats.frames[MultiBot.toUnit(pName)]
 		local addonFrame = statsFrame.frames["Addon"]
 		local tChina = GetLocale() == "zhCN"
+		local maxLvl = (ProjectJaina_Companion_DB and ProjectJaina_Companion_DB.Progression and ProjectJaina_Companion_DB.Progression.levelCap) or MAX_PLAYER_LEVEL or 80
 
 		if oPlayer ~= nil and oPlayer == true then
-			local tStats = MultiBot.doSplit(pStats, ", ")
-			local tMana = tonumber(tStats[5])
-			local tXP = tonumber(tStats[4])
+			local tXP, tMana = pStats:match("StatsOfPlayer%s+(%d+)%s+(%d+)")
+			tXP = tonumber(tXP) or 0
+			tMana = tonumber(tMana) or 0
 			local valuesText = PLAYER
 
 			statsFrame.texts["Level"]:SetText(pLevel)
 			updateStatsTextLayout(statsFrame, pName, valuesText)
 
-			if pLevel == 80 then
+			if pLevel >= maxLvl then
 				addonFrame.texts["Percent"]:SetText(
 					statsFrame.setProgress(statsFrame, tMana)
 					.. "%\n"
@@ -176,26 +177,21 @@ MultiBot.addStats = function(pFrame, pIndex, pX, pY, pSize, pWidth, pHeight)
 		end
 
 		local tStats = MultiBot.doSplit(pStats, ", ")
-		local tMoney = "|cffffdd55" .. tStats[1] .. "|r, "
+		local tMoney = "|cffffdd55" .. (tStats[1] or "") .. "|r, "
 		local tBag = MultiBot.IF(
 			tChina,
-			MultiBot.doReplace(tStats[2], "Bag", shortLabel("bag", "Bag")),
-			tStats[2]
+			MultiBot.doReplace(tStats[2] or "", "Bag", shortLabel("bag", "Bag")),
+			tStats[2] or ""
 		)
 		local valuesText = tMoney .. tBag
 
 		statsFrame.texts["Level"]:SetText(pLevel)
 		updateStatsTextLayout(statsFrame, pName, valuesText)
 
-		if pLevel == 80 then
-			local durabilityString = MultiBot.doSplit(tStats[3], "|")[2]
-			local tDur = MultiBot.doSplit(string.sub(durabilityString, 10), " ")
-			local tQuality = tonumber(string.sub(tDur[1], 1, string.len(tDur[1]) - 1))
-			local tRepair = tonumber(string.sub(tDur[2], 2, string.len(tDur[2]) - 1))
-
-			if tQuality == 0 and tRepair == 0 then
-				tQuality = 100
-			end
+		if pLevel >= maxLvl then
+			local rawDur = tStats[3] or ""
+			local durPercent = rawDur:match("(%d+)%%")
+			local tQuality = tonumber(durPercent) or 100
 
 			addonFrame.texts["Percent"]:SetText(
 				statsFrame.setProgress(statsFrame, tQuality)
@@ -203,8 +199,9 @@ MultiBot.addStats = function(pFrame, pIndex, pX, pY, pSize, pWidth, pHeight)
 				.. shortLabel("dur", "Dur")
 			)
 		else
-			local xpString = MultiBot.doSplit(tStats[4], "|")[2]
-			local tXP = tonumber(string.sub(xpString, 10))
+			local rawXP = tStats[4] or ""
+			local xpPercent = rawXP:match("(%d+)%%")
+			local tXP = tonumber(xpPercent) or 0
 
 			addonFrame.texts["Percent"]:SetText(
 				statsFrame.setProgress(statsFrame, tXP)

@@ -2016,8 +2016,14 @@ function MultiBot.HandleMultiBotEvent(event, ...)
 		end
 
 		if(arg1 == "stats" and arg2 ~= UnitName("player")) then
-			local tXP = math.floor(100.0 / UnitXPMax("player") * UnitXP("player"))
-			local tMana = math.floor(100.0 / UnitManaMax("player") * UnitMana("player"))
+			local xpMax = UnitXPMax("player") or 0
+			local xpCur = UnitXP("player") or 0
+			local tXP = (xpMax > 0) and math.floor(100.0 / xpMax * xpCur) or 100
+
+			local manaMax = UnitManaMax("player") or 0
+			local manaCur = UnitMana("player") or 0
+			local tMana = (manaMax > 0) and math.floor(100.0 / manaMax * manaCur) or 100
+
 			SendChatMessage("StatsOfPlayer " .. tXP .. " " .. tMana, "WHISPER", nil, arg2)
 		end
 
