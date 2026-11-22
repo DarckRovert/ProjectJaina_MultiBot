@@ -9834,6 +9834,13 @@ function Comm.HandleAddonMessage(prefix, message, distribution, sender)
     return true
   end
 
+  if opcode == "INIT_AUTO_ACK" then
+    state.connected = true
+    state.lastError = nil
+    debugPrint("ADDON:RX", "INIT_AUTO_ACK", payload or "")
+    return true
+  end
+
   if opcode == "POSITION_ACK" then
     state.connected = true
     state.lastError = nil
