@@ -116,6 +116,13 @@ local function addMemoryGemButton(portalFrame, definition)
     end
 
     gem.doLeft = function(button)
+        if MultiBot.GM == false then
+            if DEFAULT_CHAT_FRAME then
+                DEFAULT_CHAT_FRAME:AddMessage("|cffff4444[MultiBot]|r " .. (MultiBot.L("info.rights") or "Requiere rango de Game Master."))
+            end
+            return
+        end
+
         local player = MultiBot.getBot(UnitName("player"))
         if not player then
             MultiBot.coordsState = MultiBot.coordsState or {}
@@ -124,7 +131,9 @@ local function addMemoryGemButton(portalFrame, definition)
         player.waitFor = player.waitFor or ""
 
         if player.waitFor ~= "" then
-            SendChatMessage(MultiBot.L("info.saving"), "SAY")
+            if DEFAULT_CHAT_FRAME then
+                DEFAULT_CHAT_FRAME:AddMessage("|cffffff00[MultiBot]|r " .. (MultiBot.L("info.saving") or "Esperando coordenadas..."))
+            end
             return
         end
 

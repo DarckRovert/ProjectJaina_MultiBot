@@ -4379,9 +4379,19 @@ MultiBot.AddClassToTarget = function(classCmd, gender)
   end
 end
 
--- Init Wrapper
+-- Init Wrapper (preferencia IPC cuando el bridge esta conectado; SAY solo fallback offline)
 function MultiBot.InitAuto(name)
+  if type(name) ~= "string" or name == "" then
+    return false
+  end
+  if MultiBot.Comm and MultiBot.Comm.RunInitAutoCommand and MultiBot.Comm.RunInitAutoCommand(name) then
+    return true
+  end
+  if MultiBot.bridgeState and MultiBot.bridgeState.connected then
+    return false
+  end
   SendChatMessage(".playerbots bot init=auto " .. name, "SAY")
+  return true
 end
 
 -- Localization payload moved to AceLocale files.

@@ -477,6 +477,7 @@ local function ensureBridgeState()
   state.glyphActive = state.glyphActive or nil
   state.rtiSeq = state.rtiSeq or 0
   state.combatSeq = state.combatSeq or 0
+  state.initSeq = state.initSeq or 0
   state.positionSeq = state.positionSeq or 0
   state.lootRuleItemSeq = state.lootRuleItemSeq or 0
   state.lootRuleItemCommands = state.lootRuleItemCommands or {}
@@ -1801,6 +1802,24 @@ function Comm.RunCombatCommand(scope, target, command)
   local token = tostring(math.floor(safeNow() * 1000)) .. "-" .. tostring(state.combatSeq)
 
   return Comm.Send("RUN", "COMBAT~" .. scope .. "~" .. urlEncodeField(target) .. "~" .. token .. "~" .. urlEncodeField(command))
+end
+
+function Comm.RunInitAutoCommand(target)
+  local state = ensureBridgeState()
+
+  if not state.connected then
+    return false
+  end
+
+  target = trim(target or "")
+  if target == "" then
+    return false
+  end
+
+  state.initSeq = (tonumber(state.initSeq) or 0) + 1
+  local token = tostring(math.floor(safeNow() * 1000)) .. "-" .. tostring(state.initSeq)
+
+  return Comm.Send("RUN", "INIT_AUTO~BOT~" .. urlEncodeField(target) .. "~" .. token .. "~init=auto")
 end
 
 local function validateStrategyMutationChanges(changes)

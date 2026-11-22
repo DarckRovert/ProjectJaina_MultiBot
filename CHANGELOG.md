@@ -4,6 +4,13 @@ Todos los cambios notables de este proyecto están documentados en este archivo 
 
 ---
 
+## [4.0.2-WP] — 2026-11-22
+### RBAC Multi-Humano, Ruta IPC `INIT_AUTO` y Guarda Non-GM de Mapa (Hito #387)
+- **Ruta IPC `InitAuto` (`Core/MultiBot.lua`, `Core/MultiBotComm.lua`):** Añadido `Comm.RunInitAutoCommand(target)` (`RUN~INIT_AUTO~BOT~...`) enlazado desde `MultiBot.InitAuto(name)` cuando el bridge está conectado, manteniendo `SendChatMessage` solo como fallback offline para cuentas Rango 0.
+- **Guarda Non-GM en Selector de Mapa (`UI/MultiBotGmUI.lua`):** Bloqueado `.go xyz`/`.gps` cuando `MultiBot.GM == false` sustituyendo los avisos en canal `"SAY"` por feedback local en `DEFAULT_CHAT_FRAME`.
+
+---
+
 ## [4.0.1-WP] — 2026-11-10
 ### Reensamblaje de Roster por Chunks y Preservación de Estrategias (Hito #341 / Bug #3)
 - **Streaming de Roster Multi-Chunk (`Core/MultiBotComm.lua`):** Soporte nativo para opcodes `ROSTER_BEGIN`, `ROSTER_CHUNK` y `ROSTER_END` acumulados en `state.rosterBatch`, permitiendo transmitir escuadrones completos sin pérdida por el límite de 255 bytes de `CHAT_MSG_ADDON`.
